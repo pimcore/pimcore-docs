@@ -8,25 +8,21 @@ to fork and alter the Daux repo itself.
 
 After running a `composer install` you can build the documentation with the following steps.
 
-1. Clone or symlink the Pimcore repository to `repo` and check out the branch you want to use.
 
-    ```
-    $ git clone git@github.com:pimcore/pimcore.git repo
-    ```
-
-2. Prepare rendering with the prepare command
+1. Prepare rendering with the prepare command. The path is the path to the `doc` directory
+   in the Pimcore repository. 
    
     ```
-    $ bin/console prepare
+    $ bin/console prepare <path to docs>
     ```
    
-3. View in live mode (optional)
+2. View in live mode (optional)
 
     ```
     $ bin/console serve
     ```
     
-4. Generate static files
+3. Generate static files
 
     ```
     $ bin/console generate

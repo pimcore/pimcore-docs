@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace Pimcore\Documentation\Console;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -95,11 +96,10 @@ class PrepareCommand extends Command
             $defaultConfig
         );
 
-        $this->addOption(
-            'docsPath', 'd',
-            InputOption::VALUE_REQUIRED,
-            'The directory name containing documentation inside the repository',
-            'doc'
+        $this->addArgument(
+            'sourcePath',
+            InputArgument::REQUIRED,
+            'Path to doc/ directory in the repository'
         );
     }
 
@@ -145,11 +145,11 @@ class PrepareCommand extends Command
             return 1;
         }
 
-        $docsPath = $this->paths['repo'] . '/' . $input->getOption('docsPath');
-        if ($this->fs->exists($docsPath)) {
-            $this->io->writeln(sprintf('Found docs path in <comment>%s</comment>', $docsPath));
+        $sourcePath = $input->getArgument('sourcePath');
+        if ($this->fs->exists($sourcePath)) {
+            $this->io->writeln(sprintf('Using source path <comment>%s</comment>', $sourcePath));
         } else {
-            $this->io->error(sprintf('The docs path was not found in %s', $docsPath));
+            $this->io->error(sprintf('The source path was not found in %s', $sourcePath));
 
             return 2;
         }
@@ -172,7 +172,7 @@ class PrepareCommand extends Command
 
         $this->fs->mkdir($workDir);
 
-        $this->copyDocs($docsPath, $workDir);
+        $this->copyDocs($sourcePath, $workDir);
         $this->createConfigFile($workDir, $this->paths['config'], $config);
     }
 
