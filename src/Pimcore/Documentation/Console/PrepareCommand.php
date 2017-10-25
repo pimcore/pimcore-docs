@@ -29,9 +29,14 @@ use Symfony\Component\Finder\Finder;
 class PrepareCommand extends Command
 {
     /**
-     * @var array
+     * @var string
      */
-    private $paths = [];
+    private $configPath;
+
+    /**
+     * @var string
+     */
+    private $buildPath;
 
     /**
      * @var SymfonyStyle
@@ -60,19 +65,20 @@ class PrepareCommand extends Command
     {
         $basePath = realpath(__DIR__ . '/../../../..');
 
-        $this->paths = [
-            'base'    => $basePath,
-            'workDir' => $basePath . '/build',
-            'config'  => $basePath . '/config',
-            'repo'    => $basePath . '/repo'
-        ];
+        $this->configPath = $basePath . '/config';
+        $this->buildPath  = $basePath . '/build';
     }
 
     protected function configure()
     {
         $this
             ->setName('prepare')
-            ->setDescription('Prepare filesystem to generate docs');
+            ->setDescription('Prepare filesystem to generate docs')
+            ->addArgument(
+                'sourcePath',
+                InputArgument::REQUIRED,
+                'Path to doc/ directory in the repository'
+            );
 
         $this->addConfigOption();
     }
@@ -95,12 +101,6 @@ class PrepareCommand extends Command
             $description,
             $defaultConfig
         );
-
-        $this->addArgument(
-            'sourcePath',
-            InputArgument::REQUIRED,
-            'Path to doc/ directory in the repository'
-        );
     }
 
     private function getAvailableConfigs(): array
@@ -114,7 +114,7 @@ class PrepareCommand extends Command
         $finder = new Finder();
         $finder
             ->directories()
-            ->in($this->paths['config'])
+            ->in($this->configPath)
             ->depth(0)
             ->sortByName()
             ->ignoreDotFiles(true)
@@ -155,7 +155,7 @@ class PrepareCommand extends Command
         }
 
         $config     = $input->getOption('config');
-        $configPath = $this->paths['config'] . '/' . $config;
+        $configPath = $this->configPath . '/' . $config;
 
         if (!$this->fs->exists($configPath)) {
             $this->io->error(sprintf('The config path %s does not exist', $configPath));
@@ -163,17 +163,16 @@ class PrepareCommand extends Command
             return 3;
         }
 
-        $workDir = $this->paths['workDir'];
-        if ($this->fs->exists($workDir)) {
-            $this->io->writeln(sprintf('Cleaning up work dir <comment>%s</comment>', $workDir));
+        if ($this->fs->exists($this->buildPath)) {
+            $this->io->writeln(sprintf('Cleaning up build dir <comment>%s</comment>', $this->buildPath));
 
-            $this->fs->remove($workDir);
+            $this->fs->remove($this->buildPath);
         }
 
-        $this->fs->mkdir($workDir);
+        $this->fs->mkdir($this->buildPath);
 
-        $this->copyDocs($sourcePath, $workDir);
-        $this->createConfigFile($workDir, $this->paths['config'], $config);
+        $this->copyDocs($sourcePath, $this->buildPath);
+        $this->createConfigFile($this->buildPath, $this->configPath, $config);
     }
 
     private function copyDocs(string $docsPath, string $workDir)
