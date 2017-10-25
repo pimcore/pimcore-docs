@@ -313,6 +313,10 @@ class PrepareCommand extends Command
             $this->fs->mkdir($themesDir);
         }
 
+        if (!$this->fs->exists($source)) {
+            return;
+        }
+
         $finder = new Finder();
         $finder
             ->directories()

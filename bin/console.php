@@ -23,8 +23,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $application = new Application('Pimcore Documentation Generator');
 $application->addCommands([
     new \Pimcore\Documentation\Console\PrepareCommand(),
-    new \Todaymade\Daux\Console\Generate(),
-    new \Todaymade\Daux\Console\Serve()
+    new \Pimcore\Documentation\Console\ServeCommand(),
+    new \Pimcore\Documentation\Console\GenerateCommand()
 ]);
 
 $application->run();
