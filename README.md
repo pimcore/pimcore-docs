@@ -43,4 +43,4 @@ Install prerequisites:
 * Yarn
 * Install dependencies: `yarn`
 
-Alter files in `themes/pimcore`, run `gulp` to build CSS and JS files and commit generated files back to the repository. To continously build assets you can use `gulp watch` to watch styles and scripts and automatically rebuild assets.
+Alter files in `themes/pimcore`, run `gulp` to build CSS and JS files and commit generated files back to the repository. You can use `gulp watch` to watch styles and scripts and automatically rebuild assets.
