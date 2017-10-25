@@ -10,19 +10,27 @@ After running a `composer install` you can build the documentation with the foll
 
 1. Clone or symlink the Pimcore repository to `repo` and check out the branch you want to use.
 
+    ```
     $ git clone git@github.com:pimcore/pimcore.git repo
+    ```
 
 2. Prepare rendering with the prepare command
    
+    ```
     $ bin/console prepare
+    ```
    
 3. View in live mode
 
+    ```
     $ bin/console serve
+    ```
     
 4. Generate static files
 
+    ```
     $ bin/console generate
+    ```
     
 Generated files will be written to `build/static`. The `prepare` command is only needed everytime you change documentation
 files or files in `config` as it takes care of copying those files to the temporary `build/` dir and renaming `README.md`
