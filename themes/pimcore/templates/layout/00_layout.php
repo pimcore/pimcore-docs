@@ -25,7 +25,7 @@
     echo "<link href='$css' rel='stylesheet' type='text/css'>";
 } ?>
 
-    <?php if (true || $params['html']['search']) {
+    <?php if ($params['html']['search']) {
     ?>
         <!-- Tipue Search -->
         <link href="<?= $base_url; ?>tipuesearch/tipuesearch.css" rel="stylesheet">
@@ -63,7 +63,7 @@
 
     <script src="<?= $base_url; ?>themes/daux/js/daux.js"></script>
 
-    <?php if (true || $params['html']['search']) {
+    <?php if ($params['html']['search']) {
         ?>
         <!-- Tipue Search -->
         <script type="text/javascript" src="<?php echo $base_url; ?>tipuesearch/tipuesearch.js"></script>
