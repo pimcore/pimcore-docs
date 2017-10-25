@@ -52,3 +52,22 @@ body {
 .disqus-separator {
     margin: 15px 0 20px;
 }
+
+.SearchResults {
+    .SearchResults__title,
+    .SearchResults__url,
+    .SearchResults__text,
+    .SearchResults__warning {
+        font-weight: normal;
+
+        a {
+            color: @light;
+        }
+    }
+
+    .SearchResults__highlight {
+        font-weight: normal;
+        background: lighten(@light, 50%);
+    }
+}
+
