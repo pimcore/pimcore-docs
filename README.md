@@ -20,7 +20,7 @@ After running a `composer install` you can build the documentation with the foll
     $ bin/console prepare
     ```
    
-3. View in live mode
+3. View in live mode (optional)
 
     ```
     $ bin/console serve
