@@ -24,7 +24,7 @@
         "breadcrumb_separator": "Chevrons",
         "toggle_code": false,
         "date_modified": false,
-        "float": true,
+        "float": false,
         "inherit_index": true,
         "repo": "pimcore/pimcore",
         "twitter": ["pimcore"],
