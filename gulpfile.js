@@ -4,12 +4,28 @@ var cssnano = require('cssnano'),
     rename = require('gulp-rename'),
     plumber = require('gulp-plumber'),
     postcss = require('gulp-postcss'),
-    stylelint = require('gulp-stylelint');
+    stylelint = require('gulp-stylelint'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify');
 
-var resources = {
+var styles = {
     pimcore: {
         source: "themes/pimcore/less/pimcore.less",
         dest: "themes/pimcore/css/"
+    }
+};
+
+var scripts = {
+    pimcore: {
+        filename: "pimcore.js",
+        sources: [
+            "vendor/daux/daux.io/themes/daux/js/jquery-1.11.3.min.js",
+            "vendor/daux/daux.io/themes/daux/js/highlight.pack.js",
+            "themes/pimcore/js/source/pimcore_code_section.js",
+            "themes/pimcore/js/source/pimcore_video.js",
+            "vendor/daux/daux.io/themes/daux/js/daux.js"
+        ],
+        dest: "themes/pimcore/js/build/"
     }
 };
 
@@ -46,6 +62,18 @@ function createCSSTask(source, dest) {
     }
 }
 
+function createScriptTask(filename, sources, destination) {
+    return function () {
+        return gulp.src(sources)
+            .pipe(plumber())
+            .pipe(concat(filename))
+            .pipe(gulp.dest(destination))
+            .pipe(uglify())
+            .pipe(rename({suffix: '.min'}))
+            .pipe(gulp.dest(destination));
+    }
+}
+
 gulp.task('lint-css', function () {
     return gulp
         .src(['themes/**/less/**/*.less', '!themes/**/vendor/**/*.less'])
@@ -65,20 +93,37 @@ gulp.task('lint-css', function () {
 });
 
 var style_tasks = [];
-for (var style in resources) {
-    if (resources.hasOwnProperty(style)) {
-        gulp.task('style_' + style, createCSSTask(resources[style].source, resources[style].dest));
+for (var style in styles) {
+    if (styles.hasOwnProperty(style)) {
+        gulp.task('style_' + style, createCSSTask(styles[style].source, styles[style].dest));
         style_tasks.push('style_' + style);
     }
 }
 
 style_tasks.push('lint-css');
 
+var script_tasks = [];
+for (var script in scripts) {
+    if (scripts.hasOwnProperty(script)) {
+        gulp.task('script_' + script, createScriptTask(
+            scripts[script].filename,
+            scripts[script].sources,
+            scripts[script].dest
+        ));
+
+        script_tasks.push('script_' + script);
+    }
+}
+
 gulp.task("styles", style_tasks);
+gulp.task("scripts", script_tasks);
 
 gulp.task('watch', ['default'], function () {
     // Watch .less files
     gulp.watch('themes/**/less/**/*.less', ['styles']);
+
+    // Watch .js files
+    gulp.watch('themes/**/js/source/**/*.js', ['scripts']);
 });
 
-gulp.task('default', ['styles']);
+gulp.task('default', ['scripts', 'styles']);

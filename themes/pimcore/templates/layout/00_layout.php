@@ -49,19 +49,13 @@
     }
     ?>
 
-    <!-- jQuery -->
-    <script src="<?= $base_url; ?>themes/pimcore/js/jquery-1.11.3.min.js"></script>
-
-    <!-- highlight.js -->
-    <script src="<?= $base_url; ?>themes/pimcore/js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
     <!-- JS -->
     <?php foreach ($params['theme']['js'] as $js) {
         echo '<script src="' . $js . '"></script>';
     } ?>
 
-    <script src="<?= $base_url; ?>themes/pimcore/js/daux.js"></script>
+    <script src="<?= $base_url; ?>themes/pimcore/js/build/pimcore.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
     <?php if ($params['html']['search']) {
         ?>
