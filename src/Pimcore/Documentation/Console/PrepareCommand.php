@@ -94,6 +94,13 @@ class PrepareCommand extends Command
             $description,
             $defaultConfig
         );
+
+        $this->addOption(
+            'docsPath', 'd',
+            InputOption::VALUE_REQUIRED,
+            'The directory name containing documentation inside the repository',
+            'doc'
+        );
     }
 
     private function getAvailableConfigs(): array
@@ -138,7 +145,7 @@ class PrepareCommand extends Command
             return 1;
         }
 
-        $docsPath = $this->paths['repo'] . '/doc';
+        $docsPath = $this->paths['repo'] . '/' . $input->getOption('docsPath');
         if ($this->fs->exists($docsPath)) {
             $this->io->writeln(sprintf('Found docs path in <comment>%s</comment>', $docsPath));
         } else {
