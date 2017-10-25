@@ -1,4 +1,7 @@
 /docs
 /repo
 /static
+
+# yarn and composer
+/node_modules
 /vendor
