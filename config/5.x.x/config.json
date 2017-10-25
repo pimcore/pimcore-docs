@@ -1,0 +1,9 @@
+{
+    "html": {
+        "edit_on_github": "pimcore/pimcore/edit/master/doc/Development_Documentation",
+        "links": {
+            "Docs Version 4": "https://www.pimcore.org/docs/4.6.x/",
+            "Docs Version 3": "https://www.pimcore.org/confluence/display/PIMCORE3/"
+        }
+    }
+}

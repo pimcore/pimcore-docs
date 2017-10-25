@@ -1,5 +1,16 @@
 {
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
     "require": {
-        "daux/daux.io": "^0.6.0"
+        "daux/daux.io": "^0.6.0",
+        "symfony/console": "^3.3",
+        "symfony/filesystem": "^3.3",
+        "symfony/finder": "^3.3"
     }
 }
