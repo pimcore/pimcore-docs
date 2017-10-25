@@ -29,14 +29,18 @@ class GenerateCommand extends Generate
 
         $definition
             ->getOption('source')
-            ->setDefault('docs/docs');
+            ->setDefault('build/docs');
 
         $definition
             ->getOption('configuration')
-            ->setDefault('docs/config.json');
+            ->setDefault('build/config.json');
 
         $definition
             ->getOption('themes')
-            ->setDefault('docs/themes');
+            ->setDefault('themes');
+
+        $definition
+            ->getOption('destination')
+            ->setDefault('build/static');
     }
 }

@@ -61,7 +61,7 @@ class PrepareCommand extends Command
 
         $this->paths = [
             'base'    => $basePath,
-            'workDir' => $basePath . '/docs',
+            'workDir' => $basePath . '/build',
             'config'  => $basePath . '/config',
             'repo'    => $basePath . '/repo'
         ];
@@ -174,10 +174,6 @@ class PrepareCommand extends Command
 
         $this->copyDocs($docsPath, $workDir);
         $this->createConfigFile($workDir, $this->paths['config'], $config);
-
-        $this->writeSection('Setting up themes');
-        $this->setupThemes($this->paths['base'], $workDir, $this->paths['base'] . '/themes');
-        $this->setupThemes($this->paths['base'], $workDir, $this->paths['base'] . '/vendor/daux/daux.io/themes');
     }
 
     private function copyDocs(string $docsPath, string $workDir)
@@ -311,44 +307,6 @@ class PrepareCommand extends Command
             $targetConfigFile,
             json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
         );
-    }
-
-    private function setupThemes(string $basePath, string $workDir, string $source)
-    {
-        $themesDir = $workDir . '/themes';
-        if (!$this->fs->exists($themesDir)) {
-            $this->fs->mkdir($themesDir);
-        }
-
-        if (!$this->fs->exists($source)) {
-            return;
-        }
-
-        $finder = new Finder();
-        $finder
-            ->directories()
-            ->in($source)
-            ->depth(0);
-
-        foreach ($finder as $dir) {
-            $target = $themesDir . '/' . $dir->getFilename();
-
-            if ($this->fs->exists($target)) {
-                $this->io->writeln(sprintf(
-                    'Not copying theme <comment>%s<comment> from vendor as theme <comment>%s<comment> already exists',
-                    $this->makePathRelative($dir->getRealPath(), $basePath),
-                    $dir->getFilename()
-                ));
-            } else {
-                $this->io->writeln(sprintf(
-                    'Symlinking theme <comment>%s</comment> to <comment>%s</comment>',
-                    $this->makePathRelative($dir->getRealPath(), $basePath),
-                    $this->makePathRelative($target, $basePath)
-                ));
-            }
-
-            $this->fs->symlink($dir->getRealPath(), $target, true);
-        }
     }
 
     private function readJson(string $path): array

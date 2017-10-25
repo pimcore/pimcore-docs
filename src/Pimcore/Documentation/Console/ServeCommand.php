@@ -51,11 +51,11 @@ class ServeCommand extends Command
         $port = $input->getOption('port');
 
         $baseDir = realpath(__DIR__ . '/../../../..');
-        chdir($baseDir . '/docs');
+        chdir($baseDir);
 
-        putenv('DAUX_SOURCE=' . $baseDir . '/docs/docs');
-        putenv('DAUX_THEME=' . $baseDir . '/docs/themes');
-        putenv('DAUX_CONFIGURATION=' . $baseDir . '/docs/config.json');
+        putenv('DAUX_SOURCE=' . $baseDir . '/build/docs');
+        putenv('DAUX_THEME=' . $baseDir . '/themes');
+        putenv('DAUX_CONFIGURATION=' . $baseDir . '/build/config.json');
         putenv('DAUX_EXTENSION=' . $baseDir . '/src/Todaymade/Daux/Extension');
 
         $base   = ProcessUtils::escapeArgument($baseDir);
