@@ -1,7 +1,10 @@
 {
     "favicon": "<theme_url>img/favicon.png",
     "css": ["<theme_url>css/pimcore.min.css"],
-    "js": [],
+    "js": [
+        "<theme_url>js/pimcore_code_section.js",
+        "<theme_url>js/pimcore_video.js"
+    ],
     "fonts": [
         "//fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900"
     ]
