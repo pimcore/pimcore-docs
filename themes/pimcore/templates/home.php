@@ -13,16 +13,22 @@
     <div class="s-content">
         <?= $page['content']; ?>
 
-        <div class="Columns Columns__landing">
-            <div class="Columns__left">
-                <h2>Development Documentation</h2>
-                <?= $this->get_navigation($tree['Development_Documentation'], './Development_Documentation', isset($params['request']) ? $params['request'] : '', $base_page, 0); ?>
+        <?php if (!empty($params['html']['homepage_links'] ?? [])): ?>
+
+            <div class="Columns Columns__landing">
+
+                <?php foreach ($params['html']['homepage_links'] as $title => $link): ?>
+
+                    <div class="Columns__left">
+                        <h2><?= $title ?></h2>
+                        <?= $this->get_navigation($tree[$link], './' . $link, isset($params['request']) ? $params['request'] : '', $base_page, 0); ?>
+                    </div>
+
+                <?php endforeach; ?>
+
             </div>
-            <div class="Columns__right">
-                <h2>User Documentation</h2>
-                <?= $this->get_navigation($tree['User_Documentation'], './User_Documentation', isset($params['request']) ? $params['request'] : '', $base_page, 0); ?>
-            </div>
-        </div>
+
+        <?php endif; ?>
     </div>
 
     <?php $this->insert('theme::partials/disqus', ['page' => $page]) ?>

@@ -1,5 +1,9 @@
 {
     "html": {
+        "homepage_links": {
+            "Development Documentation": "Development_Documentation",
+            "User Documentation": "User_Documentation"
+        },
         "edit_on_github": "pimcore/pimcore/edit/master/doc",
         "links": {
             "Docs Version 4": "https://www.pimcore.org/docs/4.6.x/",

@@ -1,5 +1,13 @@
 {
     "html": {
+        "ignore": {
+            "folders": [
+                "User_Documentation"
+            ]
+        },
+        "homepage_links": {
+            "Development Documentation": "Development_Documentation"
+        },
         "edit_on_github": "pimcore/pimcore/edit/pimcore4/doc",
         "links": {
             "Docs Version 5": "https://www.pimcore.org/docs/5.0.x/",

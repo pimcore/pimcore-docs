@@ -77,11 +77,41 @@ body {
 
 @media screen and (min-width: 768px) {
     .Columns__landing {
-        .Columns__left,
-        .Columns__right {
-            width: 50%;
+        .Columns__left {
+            width: 48%;
             border: none;
             background: transparent;
+            overflow-x: auto;
+
+            &:nth-child(2) {
+                margin-left: 4%;
+            }
+        }
+    }
+}
+
+.homepage .Columns__landing div > .Nav {
+    li a {
+        // display: inline-block;
+        background: none;
+        line-height: 1.5;
+    }
+
+    > li {
+        > a {
+            display: block;
+            color: @light;
+            padding-left: 0;
+            font-size: 16px;
+            margin-top: 15px;
+
+            .Nav__arrow {
+                // display: none;
+            }
+        }
+
+        ul > li > a {
+            padding-left: 16px;
         }
     }
 }
