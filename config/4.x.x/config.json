@@ -1,10 +1,11 @@
 {
+    "ignore": {
+        "folders": [
+            "User_Documentation"
+        ]
+    },
     "html": {
-        "ignore": {
-            "folders": [
-                "User_Documentation"
-            ]
-        },
+        "auto_landing": false,
         "landingpage_links": {
             "Development Documentation": "Development_Documentation"
         },
