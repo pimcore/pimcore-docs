@@ -2,18 +2,14 @@
 
 <div id="disqus_thread"></div>
 <script>
-
     <?php
-    $pageUrl = 'https://www.pimcore.org/docs/latest/';
-    $pageUrl = $pageUrl . str_replace('Development_Documentation/', '', $page['request']) . '.html';
-
+    $pageUrl = 'https://pimcore.com/docs/latest/' . $page['request'] . '.html';
     $identifier = str_replace("_index.md", "README.md", $page['relative_path']);
-    $identifier = str_replace('Development_Documentation/', '', $identifier);
     ?>
 
     var disqus_config = function () {
-        this.page.url = "<?= $pageUrl ?>";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "<?= $identifier ?>"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "<?= $pageUrl ?>";
+        this.page.identifier = "<?= $identifier ?>";
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
