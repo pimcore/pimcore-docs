@@ -23,6 +23,7 @@ var scripts = {
             "vendor/daux/daux.io/themes/daux/js/highlight.pack.js",
             "themes/pimcore/js/source/pimcore_code_section.js",
             "themes/pimcore/js/source/pimcore_video.js",
+            "themes/pimcore/js/source/pimcore.js",
             "vendor/daux/daux.io/themes/daux/js/daux.js"
         ],
         dest: "themes/pimcore/js/build/"

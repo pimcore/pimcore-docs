@@ -65,6 +65,27 @@ body {
     margin: 15px 0 20px;
 }
 
+.Columns__landing {
+    .Nav {
+        padding-left: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .Columns__landing {
+        .Columns__left,
+        .Columns__right {
+            width: 50%;
+            border: none;
+            background: transparent;
+        }
+    }
+}
+
+.homepage .Nav__item--open > a {
+    background: transparent !important;
+}
+
 .SearchResults {
     .SearchResults__title,
     .SearchResults__url,
