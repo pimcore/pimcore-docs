@@ -210,7 +210,8 @@ $(document).ready(function() {
 
     // sidebar menu
     openFirstNavLevel($('.homepage aside.Columns__left div > .Nav'));
-    // content menu tree
+
+    // content menu trees
     openFirstNavLevel($('.homepage .Columns__landing div > .Nav'));
 });
 
