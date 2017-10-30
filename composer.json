@@ -8,6 +8,7 @@
         }
     },
     "require": {
+        "cpliakas/git-wrapper": "^1.7",
         "daux/daux.io": "^0.6.0",
         "symfony/console": "^3.3",
         "symfony/filesystem": "^3.3",

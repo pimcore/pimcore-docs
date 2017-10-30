@@ -26,7 +26,7 @@
         "float": false,
         "inherit_index": true,
         "repo": "pimcore/pimcore",
-        "twitter": ["pimcore"],
+        "twitter": false,
         "links": {
             "Download": "https://pimcore.com/download",
             "GitHub": "https://github.com/pimcore/pimcore",

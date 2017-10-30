@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace Pimcore\Documentation\Console;
 
+use GitWrapper\GitWrapper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -172,7 +173,7 @@ class PrepareCommand extends Command
         $this->fs->mkdir($this->buildPath);
 
         $this->copyDocs($sourcePath, $this->buildPath);
-        $this->createConfigFile($this->buildPath, $this->configPath, $config);
+        $this->createConfigFile($sourcePath, $this->buildPath, $this->configPath, $config);
     }
 
     private function copyDocs(string $docsPath, string $workDir)
@@ -266,25 +267,17 @@ class PrepareCommand extends Command
         }
     }
 
-    private function createConfigFile(string $workDir, string $configDir, string $config)
+    private function createConfigFile(string $sourceDir, string $workDir, string $configDir, string $config)
     {
         $this->writeSection('Creating config file');
 
-        $targetConfigFile = $workDir . '/config.json';
-        if ($this->fs->exists($targetConfigFile)) {
-            $this->io->writeln(sprintf(
-                'Not creating config file <comment>%s</comment> as it was copied from repo',
-                $this->makePathRelative($targetConfigFile, $workDir)
-            ));
-
-            return;
-        }
-
+        $targetConfigFile   = $workDir . '/config.json';
         $defaultConfigFile  = $configDir . '/default.json';
         $selectedConfigFile = $configDir . '/' . $config . '/config.json';
 
+        $versionConfig = $this->createVersionConfig($sourceDir, $configDir);
         $defaultConfig = $this->readJson($defaultConfigFile);
-        $config        = $defaultConfig;
+        $config        = array_merge($versionConfig, $defaultConfig);
 
         if ($this->fs->exists($selectedConfigFile)) {
             $this->io->writeln(sprintf(
@@ -294,7 +287,7 @@ class PrepareCommand extends Command
             ));
 
             $selectedConfig = $this->readJson($selectedConfigFile);
-            $config         = array_merge_recursive($defaultConfig, $selectedConfig);
+            $config         = array_merge_recursive($config, $selectedConfig);
         } else {
             $this->io->writeln(sprintf(
                 'Using config from default config file <comment>%s</comment>',
@@ -306,6 +299,24 @@ class PrepareCommand extends Command
             $targetConfigFile,
             json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
         );
+    }
+
+    private function createVersionConfig(string $sourceDir, string $configDir): array
+    {
+        return [
+            'build_versions' => [
+                'source' => $this->readGitVersionInfo($sourceDir),
+                'docs'   => $this->readGitVersionInfo($configDir)
+            ]
+        ];
+    }
+
+    private function readGitVersionInfo(string $dir): string
+    {
+        $git = new GitWrapper();
+        $git = $git->workingCopy($dir);
+
+        return trim($git->run(['rev-parse', 'HEAD'])->getOutput());
     }
 
     private function readJson(string $path): array
