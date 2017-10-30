@@ -2,6 +2,7 @@
 
 Pimcore documentation generator built on [daux.io](http://daux.io/). It uses daux as composer dependency instead of forking and altering the daux repo itself. 
 
+
 ## Usage
 
 After running a `composer install` you can build the documentation with the following steps:
@@ -26,6 +27,7 @@ After running a `composer install` you can build the documentation with the foll
     
 Generated files will be written to `build/static`.
 
+
 ## Select the config version to use
 
 There are multiple configuration files in the `config` directory which will be merged with [`default.json`](./config/default.json)
@@ -34,6 +36,7 @@ during the `prepare` command. You can choose which version to use by passing the
 ```
 $ bin/console prepare --config 4.x.x
 ```
+
 
 ## Theme development
 
@@ -44,3 +47,17 @@ Install prerequisites:
 * Install dependencies: `yarn`
 
 Alter files in `themes/pimcore`, run `gulp` to build CSS and JS files and commit generated files back to the repository. You can use `gulp watch` to watch styles and scripts and automatically rebuild assets.
+
+
+## Releasing a new version
+
+There is a [RMT](https://github.com/liip/RMT) [config file](./.rmt.yml) which allows you to release a new version quickly.
+Please note that the docs build process relies on the latest annotated tag version, so releasing a version as annotated
+tag is mandatory. RMT takes care of that for you:
+
+```bash
+$ RMT release
+
+# or release a specific type
+$ RMT release --type minor
+```
