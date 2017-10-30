@@ -9,8 +9,8 @@ $(document).ready(function() {
     }
 
     // sidebar menu
-    openFirstNavLevel($('.homepage aside.Columns__left div > .Nav'));
+    openFirstNavLevel($('.landingpage aside.Columns__left div > .Nav'));
 
     // content menu trees
-    openFirstNavLevel($('.homepage .Columns__landing div > .Nav'));
+    openFirstNavLevel($('.landingpage .Columns__landing div > .Nav'));
 });

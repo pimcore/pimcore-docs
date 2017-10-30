@@ -5,7 +5,7 @@
                 "User_Documentation"
             ]
         },
-        "homepage_links": {
+        "landingpage_links": {
             "Development Documentation": "Development_Documentation"
         },
         "edit_on_github": "pimcore/pimcore/edit/pimcore4/doc",

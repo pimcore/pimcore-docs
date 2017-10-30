@@ -1,6 +1,6 @@
 <?php $this->layout('theme::layout/05_page') ?>
 
-<?php $this->start('classes') ?>homepage<?php $this->stop() ?>
+<?php $this->start('classes') ?>landingpage<?php $this->stop() ?>
 
 <article class="Page">
 
@@ -13,11 +13,11 @@
     <div class="s-content">
         <?= $page['content']; ?>
 
-        <?php if (!empty($params['html']['homepage_links'] ?? [])): ?>
+        <?php if (!empty($params['html']['landingpage_links'] ?? [])): ?>
 
             <div class="Columns Columns__landing">
 
-                <?php foreach ($params['html']['homepage_links'] as $title => $link): ?>
+                <?php foreach ($params['html']['landingpage_links'] as $title => $link): ?>
 
                     <div class="Columns__left">
                         <h2><?= $title ?></h2>
