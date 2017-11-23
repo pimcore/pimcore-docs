@@ -213,6 +213,19 @@ $(document).ready(function() {
 
     // content menu trees
     openFirstNavLevel($('.landingpage .Columns__landing div > .Nav'));
+
+    // add links to headings
+    $('h1, h2, h3, h4, h5, h6').each(function() {
+        var heading = $(this);
+        if (!heading.attr('id')) {
+            return;
+        }
+
+        var link = $('<a class="headerlink">&para;</a>');
+        link.attr('href', '#' + heading.attr('id'));
+
+        heading.append(link);
+    });
 });
 
 /** global localStorage */
