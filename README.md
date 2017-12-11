@@ -49,6 +49,20 @@ Install prerequisites:
 Alter files in `themes/pimcore`, run `gulp` to build CSS and JS files and commit generated files back to the repository. You can use `gulp watch` to watch styles and scripts and automatically rebuild assets.
 
 
+## Using generator for Pimcore bundle documentations
+
+This tool can be used for generating docs of any Pimcore bundle documentation. To do so, follow these steps: 
+
+* Add a config.json in your documentation directory at `.daux/<CONFIGNAME>/config.json`
+* Use the `pimcore-generic` template by setting `"theme": "pimcore-generic"` in the `config.json`
+* Update/Overwrite all needed config options of your `config.json`
+   * config merge order is `/config/default.json` -> `/config/<CONFIGNAME>/config.json` -> `YOUR-DOC-REPOSITORY/.daux/<CONFIGNAME>/config.json` 
+   * use notation `::delete::` to remove entries from `default.json` your config, e.g. `"Download": "::delete::",`
+   * following additional config options are introduced by the `pimcore-generic` template: 
+      * `include_disqus`: true/false
+      * `disqus_url_prefix`: url prefix for including disqus, e.g. `https://pimcore.org/docs/latest`
+
+
 ## Releasing a new version
 
 There is a [RMT](https://github.com/liip/RMT) [config file](./.rmt.yml) which allows you to release a new version quickly.

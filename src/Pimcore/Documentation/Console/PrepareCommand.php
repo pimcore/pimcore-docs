@@ -157,9 +157,10 @@ class PrepareCommand extends Command
 
         $config     = $input->getOption('config');
         $configPath = $this->configPath . '/' . $config;
+        $repositoryConfigPath = $sourcePath . '/.daux/' . $config;
 
-        if (!$this->fs->exists($configPath)) {
-            $this->io->error(sprintf('The config path %s does not exist', $configPath));
+        if (!$this->fs->exists($configPath) && !$this->fs->exists($repositoryConfigPath)) {
+            $this->io->error(sprintf('The config paths %s do not exist, at least one has to be available.', $configPath . " and " . $repositoryConfigPath));
 
             return 3;
         }
@@ -273,32 +274,60 @@ class PrepareCommand extends Command
 
         $targetConfigFile   = $workDir . '/config.json';
         $defaultConfigFile  = $configDir . '/default.json';
-        $selectedConfigFile = $configDir . '/' . $config . '/config.json';
+        $selectedConfigFiles[] = $configDir . '/' . $config . '/config.json';
+        $selectedConfigFiles[] = $sourceDir . '/.daux/' . $config . '/config.json';
 
         $versionConfig = $this->createVersionConfig($sourceDir, $configDir);
         $defaultConfig = $this->readJson($defaultConfigFile);
         $config        = array_merge($versionConfig, $defaultConfig);
 
-        if ($this->fs->exists($selectedConfigFile)) {
-            $this->io->writeln(sprintf(
-                'Merging config file <comment>%s</comment> with default config file <comment>%s</comment>',
-                $this->makePathRelative($selectedConfigFile, $configDir),
-                $this->makePathRelative($defaultConfigFile, $configDir)
-            ));
+        foreach($selectedConfigFiles  as $selectedConfigFile) {
 
-            $selectedConfig = $this->readJson($selectedConfigFile);
-            $config         = array_merge_recursive($config, $selectedConfig);
-        } else {
-            $this->io->writeln(sprintf(
-                'Using config from default config file <comment>%s</comment>',
-                $this->makePathRelative($defaultConfigFile, $configDir)
-            ));
+            if ($this->fs->exists($selectedConfigFile)) {
+                $this->io->writeln(sprintf(
+                    'Merging config file <comment>%s</comment> with default config file <comment>%s</comment>',
+                    $this->makePathRelative($selectedConfigFile, $configDir),
+                    $this->makePathRelative($defaultConfigFile, $configDir)
+                ));
+
+                $selectedConfig = $this->readJson($selectedConfigFile);
+                $config         = $this->array_overlay($config, $selectedConfig);
+            }
         }
 
         $this->fs->dumpFile(
             $targetConfigFile,
             json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
         );
+    }
+
+    private function array_overlay($a1,$a2)
+    {
+        foreach($a1 as $k => $v) {
+            if (array_key_exists($k, $a2) && $a2[$k] == "::delete::") {
+                echo "unset";
+                unset($a1[$k]);
+                continue;
+            }
+            if(!array_key_exists($k,$a2)) {
+                continue;
+            }
+
+            if(is_array($v) && is_array($a2[$k])) {
+                $a1[$k] = $this->array_overlay($v,$a2[$k]);
+            } else {
+                $a1[$k] = $a2[$k];
+            }
+
+        }
+
+        foreach($a2 as $k => $v) {
+            if(!array_key_exists($k, $a1) && $v !== "::delete::") {
+                $a1[$k] = $v;
+            }
+        }
+
+        return $a1;
     }
 
     private function createVersionConfig(string $sourceDir, string $configDir): array
@@ -358,3 +387,4 @@ class PrepareCommand extends Command
         $this->io->section(sprintf('<fg=white>%s</>', $message));
     }
 }
+
