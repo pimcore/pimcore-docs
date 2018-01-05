@@ -46,7 +46,8 @@ This tool can be used for generating docs of any package (e.g. of a Pimcore bund
 
 * Add a config.json in your documentation directory e.g. `doc/config.json`. Take a look at the [config/](./config) directory
   and at the [Daux docs](https://dauxio.github.io/Configuration/index.html) to get started.
-* Use the `pimcore-generic` template by setting `"theme": "pimcore-generic"` in the `config.json`.
+* Use the `pimcore-generic` template by setting `"theme": "pimcore-generic"` in the `config.json`. You can also specify a
+  custom theme dir to the `serve` and `generate` commands and use a completely custom theme and theme dir.
 * The following additional config options are introduced by the `pimcore-generic` template: 
     * `include_disqus`: true/false
     * `disqus_url_prefix`: url prefix for including disqus, e.g. `https://pimcore.org/docs/latest`

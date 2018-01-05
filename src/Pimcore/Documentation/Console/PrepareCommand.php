@@ -32,17 +32,7 @@ class PrepareCommand extends Command
     /**
      * @var string
      */
-    private $basePath;
-
-    /**
-     * @var string
-     */
-    private $configPath;
-
-    /**
-     * @var string
-     */
-    private $buildPath;
+    private $baseDir;
 
     /**
      * @var SymfonyStyle
@@ -56,11 +46,8 @@ class PrepareCommand extends Command
 
     public function __construct($name = null)
     {
-        $this->fs = new Filesystem();
-
-        $this->basePath   = realpath(__DIR__ . '/../../../..');
-        $this->configPath = $this->basePath . '/config';
-        $this->buildPath  = $this->basePath . '/build';
+        $this->fs      = new Filesystem();
+        $this->baseDir = realpath(__DIR__ . '/../../../..');
 
         parent::__construct($name);
     }
@@ -68,24 +55,40 @@ class PrepareCommand extends Command
     protected function configure()
     {
         $defaultConfig = $this->makePathRelative(
-            $this->configPath . '/pimcore5.json',
+            $this->baseDir . '/config/pimcore5.json',
             getcwd(),
             true
+        );
+
+        $defaultBuildDir = $this->makePathRelative(
+            $this->baseDir . '/build',
+            getcwd()
         );
 
         $this
             ->setName('prepare')
             ->setDescription('Prepare filesystem to generate docs')
             ->addArgument(
-                'sourcePath',
+                'sourceDir',
                 InputArgument::REQUIRED,
                 'Path to doc/ directory in the repository'
+            )
+            ->addArgument(
+                'buildDir',
+                InputArgument::OPTIONAL,
+                'Path to the output directory where results should be built to.',
+                $defaultBuildDir
             )
             ->addOption(
                 'config-file', 'c',
                 InputOption::VALUE_REQUIRED,
                 'The config file to use',
                 $defaultConfig
+            )
+            ->addOption(
+                'clear-build-dir', 'C',
+                InputOption::VALUE_NONE,
+                'Remove and re-create build directory if it exists. Use with care!'
             );
     }
 
@@ -96,11 +99,13 @@ class PrepareCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $sourcePath = $input->getArgument('sourcePath');
-        if ($this->fs->exists($sourcePath)) {
-            $this->io->writeln(sprintf('Using source path <comment>%s</comment>', $sourcePath));
+        $sourceDir = $input->getArgument('sourceDir');
+        $sourceDir = rtrim($sourceDir, '/\\');
+
+        if ($this->fs->exists($sourceDir)) {
+            $this->io->writeln(sprintf('Using source directory <comment>%s</comment>', $sourceDir));
         } else {
-            $this->io->error(sprintf('The source path was not found in %s', $sourcePath));
+            $this->io->error(sprintf('The source path "%s" was not found', $sourceDir));
 
             return 2;
         }
@@ -112,26 +117,39 @@ class PrepareCommand extends Command
             return 3;
         }
 
-        if ($this->fs->exists($this->buildPath)) {
-            $this->io->writeln(sprintf('Cleaning up build dir <comment>%s</comment>', $this->buildPath));
+        $buildDir = $input->getArgument('buildDir');
+        $buildDir = rtrim($buildDir, '/\\');
 
-            $this->fs->remove($this->buildPath);
+        if ($this->fs->exists($buildDir)) {
+            if ($input->getOption('clear-build-dir')) {
+                $this->io->writeln(sprintf('Cleaning up build dir <comment>%s</comment>', $buildDir));
+                $this->fs->remove($buildDir);
+                $this->fs->mkdir($buildDir);
+
+            } else {
+                $this->io->error(sprintf(
+                    'The build dir "%s" already exists and the --clear-build-dir option was not passed.',
+                    rtrim($buildDir, '/\\')
+                ));
+
+                return 4;
+            }
+        } else {
+            $this->fs->mkdir($buildDir);
         }
 
-        $this->fs->mkdir($this->buildPath);
-
-        $this->copyDocs($sourcePath, $this->buildPath);
-        $this->createConfigFile($configFile, $sourcePath, $this->buildPath);
+        $this->copyDocs($sourceDir, $buildDir);
+        $this->createConfigFile($sourceDir, $buildDir, $configFile);
     }
 
-    private function copyDocs(string $sourcePath, string $buildPath)
+    private function copyDocs(string $sourceDir, string $buildDir)
     {
-        $this->io->writeln(sprintf('Copying <comment>%s</comment> to work dir', $sourcePath));
+        $this->io->writeln(sprintf('Copying <comment>%s</comment> to work dir', $sourceDir));
 
-        $target = $buildPath . '/docs';
+        $target = $buildDir . '/docs';
 
         $this->fs->mkdir($target);
-        $this->fs->mirror($sourcePath, $target, null, [
+        $this->fs->mirror($sourceDir, $target, null, [
             'override' => true,
             'delete'   => true
         ]);
@@ -200,7 +218,7 @@ class PrepareCommand extends Command
                         'Rewriting link from <comment>%s</comment> to <comment>%s</comment> in <comment>%s</comment>',
                         $match['link'],
                         $link,
-                        $this->makePathRelative($file->getRealPath(), $directory)
+                        $file->getRelativePathname()
                     ));
 
                     $replacement = str_replace($match['link'], $link, $match[0]);
@@ -215,15 +233,15 @@ class PrepareCommand extends Command
         }
     }
 
-    private function createConfigFile(string $configFile, string $sourcePath, string $buildPath)
+    private function createConfigFile(string $sourceDir, string $buildDir, string $configFile)
     {
         $this->writeSection('Creating config file');
 
-        $targetConfigFile = $buildPath . '/config.json';
+        $targetConfigFile = $buildDir . '/config.json';
 
         $this->io->writeln(sprintf(
             'Creating config file <comment>%s</comment> from <comment>%s</comment>',
-            $this->makePathRelative($targetConfigFile, getcwd(), true),
+            $targetConfigFile,
             $configFile
         ));
 
@@ -231,7 +249,7 @@ class PrepareCommand extends Command
         $config = $this->readJson($configFile);
 
         // read git version info from source and from pimcore-docs
-        $config = $this->addVersionConfig($config, $sourcePath);
+        $config = $this->addVersionConfig($config, $sourceDir);
 
         $this->fs->dumpFile(
             $targetConfigFile,
@@ -239,11 +257,11 @@ class PrepareCommand extends Command
         );
     }
 
-    private function addVersionConfig(array $config, string $sourcePath): array
+    private function addVersionConfig(array $config, string $sourceDir): array
     {
         $config['build_versions'] = [
-            'source' => $this->readGitVersionInfo($sourcePath),
-            'docs'   => $this->readGitVersionInfo($this->basePath)
+            'source' => $this->readGitVersionInfo($sourceDir),
+            'docs'   => $this->readGitVersionInfo($this->baseDir)
         ];
 
         return $config;
