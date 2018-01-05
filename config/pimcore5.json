@@ -2,16 +2,14 @@
     "title": "Pimcore",
     "tagline": "",
     "author": "",
-    "image": "img/logo-large.png",
-    "languages": {},
+    "languages": [],
     "format": "html",
     "processor": "",
     "ignore": {
         "files": [
             "Work_In_Progress.md"
         ],
-        "folders": [
-        ]
+        "folders": []
     },
     "timezone": "Europe/Vienna",
     "live": {
@@ -31,8 +29,15 @@
             "Download": "https://pimcore.com/download",
             "GitHub": "https://github.com/pimcore/pimcore",
             "Forums": "https://talk.pimcore.org",
-            "Gitter": "https://gitter.im/pimcore/pimcore"
+            "Gitter": "https://gitter.im/pimcore/pimcore",
+            "Docs Version 4": "https://www.pimcore.org/docs/4.6.x/",
+            "Docs Version 3": "https://www.pimcore.org/confluence/display/PIMCORE3/"
         },
-        "google_analytics": "UA-12436865-1"
+        "google_analytics": "UA-12436865-1",
+        "landingpage_links": {
+            "Development Documentation": "Development_Documentation",
+            "User Documentation": "User_Documentation"
+        },
+        "edit_on_github": "pimcore/pimcore/edit/master/doc"
     }
 }

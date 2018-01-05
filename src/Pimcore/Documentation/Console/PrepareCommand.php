@@ -32,6 +32,11 @@ class PrepareCommand extends Command
     /**
      * @var string
      */
+    private $basePath;
+
+    /**
+     * @var string
+     */
     private $configPath;
 
     /**
@@ -49,29 +54,25 @@ class PrepareCommand extends Command
      */
     private $fs;
 
-    /**
-     * @var array
-     */
-    private $availableConfigs;
-
     public function __construct($name = null)
     {
         $this->fs = new Filesystem();
-        $this->initPaths();
+
+        $this->basePath   = realpath(__DIR__ . '/../../../..');
+        $this->configPath = $this->basePath . '/config';
+        $this->buildPath  = $this->basePath . '/build';
 
         parent::__construct($name);
     }
 
-    private function initPaths()
-    {
-        $basePath = realpath(__DIR__ . '/../../../..');
-
-        $this->configPath = $basePath . '/config';
-        $this->buildPath  = $basePath . '/build';
-    }
-
     protected function configure()
     {
+        $defaultConfig = $this->makePathRelative(
+            $this->configPath . '/pimcore5.json',
+            getcwd(),
+            true
+        );
+
         $this
             ->setName('prepare')
             ->setDescription('Prepare filesystem to generate docs')
@@ -79,58 +80,13 @@ class PrepareCommand extends Command
                 'sourcePath',
                 InputArgument::REQUIRED,
                 'Path to doc/ directory in the repository'
+            )
+            ->addOption(
+                'config-file', 'c',
+                InputOption::VALUE_REQUIRED,
+                'The config file to use',
+                $defaultConfig
             );
-
-        $this->addConfigOption();
-    }
-
-    private function addConfigOption()
-    {
-        $configs = $this->getAvailableConfigs();
-
-        $description   = 'The config version to use.';
-        $defaultConfig = null;
-
-        if (!empty($configs)) {
-            $description   = sprintf('%s Available configs: %s', $description, implode(', ', $configs));
-            $defaultConfig = $configs[count($configs) - 1];
-        }
-
-        $this->addOption(
-            'config', 'c',
-            InputOption::VALUE_REQUIRED,
-            $description,
-            $defaultConfig
-        );
-    }
-
-    private function getAvailableConfigs(): array
-    {
-        if (null !== $this->availableConfigs) {
-            return $this->availableConfigs;
-        }
-
-        $this->availableConfigs = [];
-
-        $finder = new Finder();
-        $finder
-            ->directories()
-            ->in($this->configPath)
-            ->depth(0)
-            ->sortByName()
-            ->ignoreDotFiles(true)
-            ->ignoreUnreadableDirs(true);
-
-        $configs    = [];
-        $lastConfig = null;
-
-        foreach ($finder as $dir) {
-            $configs[] = $lastConfig = $dir->getFilename();
-        }
-
-        $this->availableConfigs = $configs;
-
-        return $this->availableConfigs;
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)
@@ -140,12 +96,6 @@ class PrepareCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if (empty($this->availableConfigs)) {
-            $this->io->error('No available configs were found');
-
-            return 1;
-        }
-
         $sourcePath = $input->getArgument('sourcePath');
         if ($this->fs->exists($sourcePath)) {
             $this->io->writeln(sprintf('Using source path <comment>%s</comment>', $sourcePath));
@@ -155,12 +105,9 @@ class PrepareCommand extends Command
             return 2;
         }
 
-        $config     = $input->getOption('config');
-        $configPath = $this->configPath . '/' . $config;
-        $repositoryConfigPath = $sourcePath . '/.daux/' . $config;
-
-        if (!$this->fs->exists($configPath) && !$this->fs->exists($repositoryConfigPath)) {
-            $this->io->error(sprintf('The config paths %s do not exist, at least one has to be available.', $configPath . " and " . $repositoryConfigPath));
+        $configFile = $input->getOption('config-file');
+        if (!$this->fs->exists($configFile) && !$this->fs->exists($configFile)) {
+            $this->io->error(sprintf('The config file "%s" does not exist.', $configFile));
 
             return 3;
         }
@@ -174,17 +121,17 @@ class PrepareCommand extends Command
         $this->fs->mkdir($this->buildPath);
 
         $this->copyDocs($sourcePath, $this->buildPath);
-        $this->createConfigFile($sourcePath, $this->buildPath, $this->configPath, $config);
+        $this->createConfigFile($configFile, $sourcePath, $this->buildPath);
     }
 
-    private function copyDocs(string $docsPath, string $workDir)
+    private function copyDocs(string $sourcePath, string $buildPath)
     {
-        $this->io->writeln(sprintf('Copying <comment>%s</comment> to work dir', $docsPath));
+        $this->io->writeln(sprintf('Copying <comment>%s</comment> to work dir', $sourcePath));
 
-        $target = $workDir . '/docs';
+        $target = $buildPath . '/docs';
 
         $this->fs->mkdir($target);
-        $this->fs->mirror($docsPath, $target, null, [
+        $this->fs->mirror($sourcePath, $target, null, [
             'override' => true,
             'delete'   => true
         ]);
@@ -268,32 +215,23 @@ class PrepareCommand extends Command
         }
     }
 
-    private function createConfigFile(string $sourceDir, string $workDir, string $configDir, string $config)
+    private function createConfigFile(string $configFile, string $sourcePath, string $buildPath)
     {
         $this->writeSection('Creating config file');
 
-        $targetConfigFile   = $workDir . '/config.json';
-        $defaultConfigFile  = $configDir . '/default.json';
-        $selectedConfigFiles[] = $configDir . '/' . $config . '/config.json';
-        $selectedConfigFiles[] = $sourceDir . '/.daux/' . $config . '/config.json';
+        $targetConfigFile = $buildPath . '/config.json';
 
-        $versionConfig = $this->createVersionConfig($sourceDir, $configDir);
-        $defaultConfig = $this->readJson($defaultConfigFile);
-        $config        = array_merge($versionConfig, $defaultConfig);
+        $this->io->writeln(sprintf(
+            'Creating config file <comment>%s</comment> from <comment>%s</comment>',
+            $this->makePathRelative($targetConfigFile, getcwd(), true),
+            $configFile
+        ));
 
-        foreach($selectedConfigFiles  as $selectedConfigFile) {
+        // read config file
+        $config = $this->readJson($configFile);
 
-            if ($this->fs->exists($selectedConfigFile)) {
-                $this->io->writeln(sprintf(
-                    'Merging config file <comment>%s</comment> with default config file <comment>%s</comment>',
-                    $this->makePathRelative($selectedConfigFile, $configDir),
-                    $this->makePathRelative($defaultConfigFile, $configDir)
-                ));
-
-                $selectedConfig = $this->readJson($selectedConfigFile);
-                $config         = $this->array_overlay($config, $selectedConfig);
-            }
-        }
+        // read git version info from source and from pimcore-docs
+        $config = $this->addVersionConfig($config, $sourcePath);
 
         $this->fs->dumpFile(
             $targetConfigFile,
@@ -301,43 +239,14 @@ class PrepareCommand extends Command
         );
     }
 
-    private function array_overlay($a1,$a2)
+    private function addVersionConfig(array $config, string $sourcePath): array
     {
-        foreach($a1 as $k => $v) {
-            if (array_key_exists($k, $a2) && $a2[$k] == "::delete::") {
-                echo "unset";
-                unset($a1[$k]);
-                continue;
-            }
-            if(!array_key_exists($k,$a2)) {
-                continue;
-            }
-
-            if(is_array($v) && is_array($a2[$k])) {
-                $a1[$k] = $this->array_overlay($v,$a2[$k]);
-            } else {
-                $a1[$k] = $a2[$k];
-            }
-
-        }
-
-        foreach($a2 as $k => $v) {
-            if(!array_key_exists($k, $a1) && $v !== "::delete::") {
-                $a1[$k] = $v;
-            }
-        }
-
-        return $a1;
-    }
-
-    private function createVersionConfig(string $sourceDir, string $configDir): array
-    {
-        return [
-            'build_versions' => [
-                'source' => $this->readGitVersionInfo($sourceDir),
-                'docs'   => $this->readGitVersionInfo($configDir)
-            ]
+        $config['build_versions'] = [
+            'source' => $this->readGitVersionInfo($sourcePath),
+            'docs'   => $this->readGitVersionInfo($this->basePath)
         ];
+
+        return $config;
     }
 
     private function readGitVersionInfo(string $dir): string
@@ -387,4 +296,3 @@ class PrepareCommand extends Command
         $this->io->section(sprintf('<fg=white>%s</>', $message));
     }
 }
-
