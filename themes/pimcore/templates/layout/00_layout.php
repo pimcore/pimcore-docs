@@ -34,7 +34,7 @@
 } ?>
 
     <!--[if lt IE 9]>
-    <script src="<?= $base_url; ?>themes/pimcore/js/html5shiv-3.7.3.min.js"></script>
+    <script src="<?= $base_url; ?>themes/pimcore/js/source/html5shiv-3.7.3.min.js"></script>
     <![endif]-->
 </head>
 <body class="<?= $params['html']['float'] ? 'with-float' : ''; ?> <?= $this->section('classes'); ?>">
@@ -54,7 +54,6 @@
         echo '<script src="' . $js . '"></script>';
     } ?>
 
-    <script src="<?= $base_url; ?>themes/pimcore/js/build/pimcore.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
     <?php if ($params['html']['search']) {

@@ -21,11 +21,24 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\ProcessUtils;
 
 class ServeCommand extends Command
 {
+    /**
+     * @var string
+     */
+    private $baseDir;
+
+    public function __construct($name = null)
+    {
+        $this->baseDir = realpath(__DIR__ . '/../../../..');
+
+        parent::__construct($name);
+    }
+
     protected function configure()
     {
         $this
@@ -42,6 +55,24 @@ class ServeCommand extends Command
                 InputOption::VALUE_REQUIRED,
                 'The port to serve on',
                 8085
+            )
+            ->addOption(
+                'source', 's',
+                InputOption::VALUE_REQUIRED,
+                'Where to take the documentation from',
+                $this->baseDir . '/build/docs'
+            )
+            ->addOption(
+                'configuration', 'c',
+                InputOption::VALUE_REQUIRED,
+                'Configuration file',
+                $this->baseDir . '/build/config.json'
+            )
+            ->addOption(
+                'themes', 't',
+                InputOption::VALUE_REQUIRED,
+                'Set a different themes directory',
+                $this->baseDir . '/themes'
             );
     }
 
@@ -50,15 +81,28 @@ class ServeCommand extends Command
         $host = $input->getOption('host');
         $port = $input->getOption('port');
 
-        $baseDir = realpath(__DIR__ . '/../../../..');
-        chdir($baseDir);
+        $fs = new Filesystem();
 
-        putenv('DAUX_SOURCE=' . $baseDir . '/build/docs');
-        putenv('DAUX_THEME=' . $baseDir . '/themes');
-        putenv('DAUX_CONFIGURATION=' . $baseDir . '/build/config.json');
-        putenv('DAUX_EXTENSION=' . $baseDir . '/src/Todaymade/Daux/Extension');
+        $paths = [
+            'source'        => $input->getOption('source'),
+            'configuration' => $input->getOption('configuration'),
+            'themes'        => $input->getOption('themes'),
+        ];
 
-        $base   = ProcessUtils::escapeArgument($baseDir);
+        $cwd = getcwd();
+        foreach ($paths as $type => $path) {
+            if (!$fs->isAbsolutePath($path)) {
+                $paths[$type] = rtrim($cwd, '/\\') . '/' . $path;
+            }
+        }
+
+        putenv('DAUX_SOURCE=' . $paths['source']);
+        putenv('DAUX_CONFIGURATION=' . $paths['configuration']);
+        putenv('DAUX_THEME=' . $paths['themes']);
+
+        chdir($this->baseDir);
+
+        $base   = ProcessUtils::escapeArgument($this->baseDir);
         $binary = ProcessUtils::escapeArgument((new PhpExecutableFinder)->find(false));
 
         echo "Daux development server started on http://{$host}:{$port}/\n";

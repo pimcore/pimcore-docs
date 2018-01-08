@@ -81,21 +81,8 @@
 
 
                 <hr>
+                <?php $this->insert('theme::partials/version_info', ['params' => $params]); ?>
 
-                <div class="version-info">
-                    Built from
-
-                    <a href="https://github.com/pimcore/pimcore/commit/<?= $params['build_versions']['source'] ?>">
-                        pimcore@<?= substr($params['build_versions']['source'], 0, 6) ?>
-                    </a>
-
-                    with
-
-                    <a href="https://github.com/pimcore/pimcore-docs/commit/<?= $params['build_versions']['docs'] ?>">
-                       pimcore-docs@<?= substr($params['build_versions']['docs'], 0, 6) ?>
-                    </a>
-                    .
-                </div>
             </div>
         </div>
     </aside>

@@ -2,6 +2,7 @@
  * Pimcore Documentation
  * License: GPLv3
  */
+
 @import "../../../vendor/daux/daux.io/themes/common/less/vendor/normalize.less";
 
 @font-family-text:      "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -24,4 +25,161 @@
 
 @media print {
     @import "../../../vendor/daux/daux.io/themes/daux/less/_print.less";
+}
+
+body {
+    font-family: @font-family-text;
+}
+
+.Brand {
+    background: #222;
+    color: #fff;
+
+    .Brand__logo {
+        color: transparent;
+        display: block;
+        max-width: 170px;
+        background: transparent url(../img/logo-white.svg) no-repeat left center;
+    }
+}
+
+.Pager {
+    margin: 30px 0 10px;
+}
+
+.breadcrumbs {
+    margin-top: 25px;
+}
+
+.edit_on {
+    float: right;
+    font-size: 12px;
+    color: gray;
+}
+
+.s-content {
+    h2 {
+        margin-top: 25px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    img {
+        margin: 0; // common sets margin to 0 auto to center images
+    }
+
+    table {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    blockquote {
+        font-size: 16px;
+        border-color: #ffeaae;
+        background: #fffdf6;
+        color: #666;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        .headerlink {
+            color: transparent;
+            font-size: 75%;
+            font-weight: 400;
+            line-height: 1;
+            margin: 0;
+            padding: 0 0 0 6px;
+        }
+
+        &:hover .headerlink {
+            color: @sidebar-hover;
+
+            &:hover {
+                color: @light;
+            }
+        }
+    }
+}
+
+.disqus-separator {
+    margin: 15px 0 20px;
+}
+
+.Columns__landing {
+    .Nav {
+        padding-left: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .Columns__landing {
+        .Columns__left {
+            width: 48%;
+            border: none;
+            background: transparent;
+            overflow-x: auto;
+
+            &:nth-child(2) {
+                margin-left: 4%;
+            }
+        }
+    }
+}
+
+aside.Collapsible {
+    .version-info {
+        font-size: 11px;
+        margin-bottom: 25px;
+    }
+}
+
+.landingpage .Columns__landing div > .Nav {
+    li a {
+        // display: inline-block;
+        background: none;
+        line-height: 1.5;
+    }
+
+    > li {
+        > a {
+            display: block;
+            color: @light;
+            padding-left: 0;
+            font-size: 16px;
+            margin-top: 15px;
+
+            .Nav__arrow {
+                // display: none;
+            }
+        }
+
+        ul > li > a {
+            padding-left: 16px;
+        }
+    }
+}
+
+.landingpage .Nav__item--open > a {
+    background: transparent !important;
+}
+
+.SearchResults {
+    .SearchResults__title,
+    .SearchResults__url,
+    .SearchResults__text,
+    .SearchResults__warning {
+        font-weight: normal;
+
+        a {
+            color: @light;
+        }
+    }
+
+    .SearchResults__highlight {
+        font-weight: normal;
+        background: lighten(@light, 50%);
+    }
 }
