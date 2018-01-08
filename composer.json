@@ -1,4 +1,6 @@
 {
+    "name": "pimcore/pimcore-docs",
+    "license": "GPL-3.0",
     "config": {
         "sort-packages": true
     },
