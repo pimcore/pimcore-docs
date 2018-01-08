@@ -40,7 +40,7 @@
 
 } ?>
 
-<?php $this->insert('theme::partials/disqus', ['page' => $page]) ?>
+<?php $this->insert('theme::partials/disqus', ['page' => $page, 'params' => $params]) ?>
 
 </article>
 

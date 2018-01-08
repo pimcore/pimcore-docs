@@ -31,6 +31,7 @@ After running a `composer install` you can build the documentation with the foll
     
 Generated files will be written to `build/static`.
 
+
 ## Select the config version to use
 
 There are multiple configuration files in the `config` directory. You can choose which version to use by passing the `--config-file`
@@ -40,17 +41,29 @@ option to the `prepare` command. For example, if you build Pimcore 4 docs:
 $ bin/console prepare -c config/pimcore4.json <path to pimcore checkout>/docs
 ```
 
+
 ## Using `pimcore-docs` for other package's documentations
 
-This tool can be used for generating docs of any package (e.g. of a Pimcore bundle). To do so, follow these steps: 
+This tool can be used for generating docs of any package (e.g. for a Pimcore Bundle). To do so, follow these steps:
 
 * Add a config.json in your documentation directory e.g. `doc/config.json`. Take a look at the [config/](./config) directory
   and at the [Daux docs](https://dauxio.github.io/Configuration/index.html) to get started.
-* Use the `pimcore-generic` template by setting `"theme": "pimcore-generic"` in the `config.json`. You can also specify a
-  custom theme dir to the `serve` and `generate` commands and use a completely custom theme and theme dir.
-* The following additional config options are introduced by the `pimcore-generic` template: 
-    * `include_disqus`: true/false
-    * `disqus_url_prefix`: url prefix for including disqus, e.g. `https://pimcore.org/docs/latest`
+* Use the `pimcore-generic` template variant by setting `"theme": "pimcore-generic"` in the `config.json`. You can also
+  specify a custom theme dir to the `serve` and `generate` commands and use a completely custom theme and theme dir (see
+  Daux docs for details on themes).
+
+You can now use your custom config file by just passing the config file to the prepare command:
+
+```shell
+$ bin/console prepare ../my-bundle/doc -c ../my-bundle/doc/config.json
+```
+
+If you want to use a completely custom theme directory make sure to pass it to the `serve` and `generate` commands:
+
+```shell
+$ bin/console serve -t ../my-bundle/themes
+$ bin/console generate -t ../my-bundle/themes
+```
 
 
 ## Theme development

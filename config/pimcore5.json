@@ -16,7 +16,7 @@
         "clean_urls": true
     },
     "html": {
-        "theme": "pimcore",
+        "theme": "pimcore-core",
         "breadcrumbs": true,
         "breadcrumb_separator": "Chevrons",
         "toggle_code": false,
@@ -38,6 +38,15 @@
             "Development Documentation": "Development_Documentation",
             "User Documentation": "User_Documentation"
         },
-        "edit_on_github": "pimcore/pimcore/edit/master/doc"
+        "edit_on_github": "pimcore/pimcore/edit/master/doc",
+        "disqus": {
+            "include": true,
+            "url_prefix": "https://pimcore.com/docs/latest/"
+        },
+        "version_info": {
+            "include": true,
+            "source_url": "https://github.com/pimcore/pimcore/commit/{commit_hash}",
+            "source_name": "pimcore/pimcore@{short_commit_hash}"
+        }
     }
 }

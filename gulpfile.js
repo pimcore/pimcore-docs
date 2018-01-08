@@ -9,8 +9,12 @@ var cssnano = require('cssnano'),
     uglify = require('gulp-uglify');
 
 var styles = {
-    pimcore: {
-        source: "themes/pimcore/less/pimcore.less",
+    'pimcore-core': {
+        source: "themes/pimcore/less/pimcore-core.less",
+        dest: "themes/pimcore/css/"
+    },
+    'pimcore-generic': {
+        source: "themes/pimcore/less/pimcore-generic.less",
         dest: "themes/pimcore/css/"
     }
 };
