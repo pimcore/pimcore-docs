@@ -6,7 +6,7 @@ if (isset($params['build_versions']) && ($versionInfo['include'] ?? false)): ?>
         Built
 
         <?php
-        if ($versionInfo['source_url'] && $versionInfo['source_name'] && $params['build_versions']['source']) {
+        if (isset($versionInfo['source_url']) && isset($versionInfo['source_name']) && $params['build_versions']['source']) {
             $replacements = [
                 '{commit_hash}'       => $params['build_versions']['source'],
                 '{short_commit_hash}' => substr($params['build_versions']['source'], 0, 6)
