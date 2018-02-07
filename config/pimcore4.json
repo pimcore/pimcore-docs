@@ -43,7 +43,7 @@
         },
         "edit_on_github": "pimcore/pimcore/edit/pimcore4/doc",
         "disqus": {
-            "include": true,
+            "include": false,
             "url_prefix": "https://pimcore.com/docs/latest/"
         },
         "version_info": {
