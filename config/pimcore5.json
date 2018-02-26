@@ -30,9 +30,9 @@
             "GitHub": "https://github.com/pimcore/pimcore",
             "Forums": "https://talk.pimcore.org",
             "Gitter": "https://gitter.im/pimcore/pimcore",
-            "API Docs": "https://www.pimcore.org/docs/api/",
-            "Docs Version 4": "https://www.pimcore.org/docs/4.6.x/",
-            "Docs Version 3": "https://www.pimcore.org/confluence/display/PIMCORE3/"
+            "API Docs": "https://pimcore.com/docs/api/",
+            "Docs Version 4": "https://pimcore.com/docs/4.6.x/",
+            "Docs Version 3": "https://pimcore.com/download/documentation-version-3.pdf"
         },
         "google_analytics": "UA-12436865-1",
         "landingpage_links": {

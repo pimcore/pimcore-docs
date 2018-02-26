@@ -32,9 +32,9 @@
             "GitHub": "https://github.com/pimcore/pimcore",
             "Forums": "https://talk.pimcore.org",
             "Gitter": "https://gitter.im/pimcore/pimcore",
-            "API Docs": "https://www.pimcore.org/docs/api/pimcore4/",
-            "Docs Version 5": "https://www.pimcore.org/docs/5.0.x/",
-            "Docs Version 3": "https://www.pimcore.org/confluence/display/PIMCORE3/"
+            "API Docs": "https://pimcore.com/docs/api/pimcore4/",
+            "Docs Version 5": "https://pimcore.com/docs/5.0.x/",
+            "Docs Version 3": "https://pimcore.com/download/documentation-version-3.pdf"
         },
         "google_analytics": "UA-12436865-1",
         "auto_landing": false,

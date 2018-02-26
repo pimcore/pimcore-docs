@@ -1,6 +1,7 @@
 /build
 /repo
 /static
+/.idea
 
 # yarn and composer
 /node_modules
