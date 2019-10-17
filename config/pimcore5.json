@@ -26,6 +26,7 @@
         "repo": "pimcore/pimcore",
         "twitter": false,
         "links": {
+            "👩‍🎓 Pimcore Academy": "https://pimcore.com/en/resources/academy",
             "Download": "https://pimcore.com/download",
             "GitHub": "https://github.com/pimcore/pimcore",
             "Forums": "https://talk.pimcore.org",
