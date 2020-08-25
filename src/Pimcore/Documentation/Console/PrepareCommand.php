@@ -205,7 +205,7 @@ class PrepareCommand extends Command
             $contents = file_get_contents($file->getRealPath());
 
             // match all links to an internal README.md and rewrite them to _index.md
-            if (preg_match_all('/\[(?P<text>([^\]]*))\]\((?P<link>([^\)]*)README\.md)\)/', $contents, $matches, PREG_SET_ORDER)) {
+            if (preg_match_all('/\[(?P<text>(?:[^\]]*))\]\((?P<link>(?:[^\)]*)README\.md)(?:#[^\)]*)?\)/', $contents, $matches, PREG_SET_ORDER)) {
                 foreach ($matches as $match) {
                     // do not touch links with a scheme (e.g. external links to README.md files)
                     if (false !== strpos($match['link'], '://')) {
