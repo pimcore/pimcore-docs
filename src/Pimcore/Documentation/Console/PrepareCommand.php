@@ -86,9 +86,29 @@ class PrepareCommand extends Command
                 $defaultConfig
             )
             ->addOption(
+                'repository-version', 'rv',
+                InputOption::VALUE_REQUIRED,
+                'The version of the documentation'
+            )
+            ->addOption(
+                'version-map-file', 'm',
+                InputOption::VALUE_REQUIRED,
+                'Path to version map file for building version switch.'
+            )
+            ->addOption(
+                'version-switch-path-prefix', 'pf',
+                InputOption::VALUE_REQUIRED,
+                "Url prefix that is added to version switch urls, following schema '<PREFIX>/<VERSION>/_index.html'"
+            )
+            ->addOption(
                 'clear-build-dir', 'C',
                 InputOption::VALUE_NONE,
                 'Remove and re-create build directory if it exists. Use with care!'
+            )
+            ->addOption(
+                'copy-root-readme', 'R',
+                InputOption::VALUE_NONE,
+        'Copy README.md from sourceDir/../README.md and fix relative links.'
             );
     }
 
@@ -138,15 +158,22 @@ class PrepareCommand extends Command
             $this->fs->mkdir($buildDir);
         }
 
-        $this->copyDocs($sourceDir, $buildDir);
-        $this->createConfigFile($sourceDir, $buildDir, $configFile);
+        $target = $buildDir . '/docs';
+        $this->copyDocs($sourceDir, $target);
+        if ($input->getOption('copy-root-readme') && !$this->fs->exists($buildDir . '/docs/_index.md')) {
+            $this->copyRootReadme($sourceDir, $buildDir);
+        }
+        $this->rewriteReadmeLinks($target);
+
+        $repositoryVersion = $input->getOption('repository-version');
+        $versionMap = $this->updateVersionMap($target, $repositoryVersion, $input->getOption('version-map-file'));
+
+        $this->createConfigFile($sourceDir, $buildDir, $configFile, $repositoryVersion, $versionMap, $input->getOption('version-switch-path-prefix'));
     }
 
-    private function copyDocs(string $sourceDir, string $buildDir)
+    private function copyDocs(string $sourceDir, string $target)
     {
         $this->io->writeln(sprintf('Copying <comment>%s</comment> to work dir', $sourceDir));
-
-        $target = $buildDir . '/docs';
 
         $this->fs->mkdir($target);
         $this->fs->mirror($sourceDir, $target, null, [
@@ -155,7 +182,21 @@ class PrepareCommand extends Command
         ]);
 
         $this->renameReadmeFiles($target);
-        $this->rewriteReadmeLinks($target);
+    }
+
+    private function copyRootReadme($sourceDir, $buildDir) {
+        $this->io->writeln(sprintf('Copying <comment>$sourceDir ../README.md</comment> to work dir', $sourceDir));
+
+        $targetFile = $buildDir . '/docs/_index.md';
+        $this->fs->copy($sourceDir . '/../README.md', $targetFile);
+
+        $this->io->writeln('Rewrite links in root readme');
+        $contents = file_get_contents($targetFile);
+
+        // rewrite all links ./doc  to ./
+        $contents = str_replace('](./doc/', '](./', $contents);
+
+        $this->fs->dumpFile($targetFile, $contents);
     }
 
     private function renameReadmeFiles(string $directory)
@@ -233,7 +274,37 @@ class PrepareCommand extends Command
         }
     }
 
-    private function createConfigFile(string $sourceDir, string $buildDir, string $configFile)
+    private function updateVersionMap(string $directory, string $version, string $versionMapFile) {
+
+        if (file_exists($versionMapFile)) {
+            $versionMap = $this->readJson($versionMapFile);
+        } else {
+            $versionMap = [];
+        }
+
+        $finder = new Finder();
+        $finder
+            ->files()
+            ->in($directory)
+            ->name('*.md');
+
+        foreach ($finder as $file) {
+            $pathname = $file->getPathname();
+            $pathname = str_replace($directory . '/', '', $pathname);
+
+            $versionMap[$version][$pathname] = $pathname;
+        }
+
+        $this->fs->dumpFile(
+            $versionMapFile,
+            json_encode($versionMap, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+        );
+
+        return $versionMap;
+    }
+
+
+    private function createConfigFile(string $sourceDir, string $buildDir, string $configFile, string $version, array $versionMap, string $versionSwitchPathPrefix = '')
     {
         $this->writeSection('Creating config file');
 
@@ -250,6 +321,9 @@ class PrepareCommand extends Command
 
         // read git version info from source and from pimcore-docs
         $config = $this->addVersionConfig($config, $sourceDir);
+        $config['version'] = $version;
+        $config['version_map'] = $versionMap;
+        $config['version_switch_path_prefix'] = $versionSwitchPathPrefix;
 
         $this->fs->dumpFile(
             $targetConfigFile,

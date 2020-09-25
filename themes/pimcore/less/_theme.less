@@ -39,7 +39,13 @@ body {
         color: transparent;
         display: block;
         max-width: 170px;
+        height: 26.4px;
         background: transparent url(../img/logo-white.svg) no-repeat left center;
+    }
+
+    .subtitle {
+        margin-top: 5px;
+        margin-bottom: 0;
     }
 }
 
@@ -49,12 +55,6 @@ body {
 
 .breadcrumbs {
     margin-top: 25px;
-}
-
-.edit_on {
-    float: right;
-    font-size: 12px;
-    color: gray;
 }
 
 .s-content {
@@ -116,19 +116,134 @@ body {
 
 .Columns__landing {
     .Nav {
-        padding-left: 0;
+        padding-left: 15px;
     }
+}
+
+.ribbon-box {
+    //https://www.cssportal.com/css-ribbon-generator/
+
+    position: relative;
+
+    .ribbon {
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        z-index: 1;
+        overflow: hidden;
+        width: 86px;
+        height: 86px;
+        text-align: right;
+    }
+
+    &.navigation .ribbon {
+        right: -26px;
+        top: -78px;
+    }
+
+    .ribbon span {
+        font-size: 10px;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 20px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        width: 115px;
+        display: block;
+        background: linear-gradient(@ribbon-start 0%, @ribbon-end 100%);
+        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 24px;
+        right: -23px;
+    }
+
+    .ribbon span::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 100%;
+        z-index: -1;
+        border-left: 3px solid @ribbon-end;
+        border-right: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        border-top: 3px solid @ribbon-end;
+    }
+
+    .ribbon span::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 100%;
+        z-index: -1;
+        border-left: 3px solid transparent;
+        border-right: 3px solid @ribbon-end;
+        border-bottom: 3px solid transparent;
+        border-top: 3px solid @ribbon-end;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ribbon-box.navigation .ribbon {
+        top: 44px;
+        pointer-events: none;
+    }
+}
+
+.extension-card {
+    border: 1px solid @lines;
+    border-radius: 4px;
+    padding: 20px;
+    height: 100%;
+    position: relative;
+
+    .button {
+        display: inline-block;
+        padding: 5px 14px;
+        border: 1px solid @lines;
+        border-radius: 15px;
+
+        &:hover {
+            background-color: @lines;
+        }
+    }
+}
+
+.action-box {
+    font-size: 12px;
+    float: right;
+}
+
+.edit_on {
+    color: gray;
+    margin-left: 3px;
+    display: block;
+    text-align: right;
+}
+
+.version-switcher {
+    display: block;
+    margin-bottom: 5px;
+
+    select {
+        margin-left: 3px;
+    }
+}
+
+.column {
+    margin: 20px 0;
 }
 
 @media screen and (min-width: 768px) {
     .Columns__landing {
-        .Columns__left {
-            width: 48%;
-            border: none;
-            background: transparent;
-            overflow-x: auto;
+        display: flex;
+        flex-wrap: wrap;
 
-            &:nth-child(2) {
+        .column {
+            width: 48%;
+
+            &:nth-child(even) {
                 margin-left: 4%;
             }
         }
@@ -187,5 +302,13 @@ aside.Collapsible {
     .SearchResults__highlight {
         font-weight: normal;
         background: lighten(@light, 50%);
+    }
+}
+
+.Banner {
+    margin: 10px 0;
+
+    .img {
+        width: 100%;
     }
 }

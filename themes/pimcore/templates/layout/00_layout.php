@@ -72,7 +72,8 @@
         </script>
     <?php
 
-    } ?>
+    }
+    ?>
 
 </body>
 </html>
