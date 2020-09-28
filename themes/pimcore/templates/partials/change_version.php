@@ -1,25 +1,39 @@
 <?php if(!empty($params['version']) && !empty($params['version_map'])) { ?>
 
-    <?php
-        $versions = array_keys($params['version_map']);
-        rsort($versions);
-    ?>
-
-    <?php if(count($versions) > 1) { ?>
+    <?php $versionMap = $params['version_map']; ?>
+    <?php if($versionMap['hasMultipleVersions']) { ?>
 
         <span class="version-switcher">
             Version:
             <select onchange="document.location.href=this.value">
 
-                <?php foreach($versions as $version) { ?>
-                    <?php if(!empty($params['version_map'][$version][$page['relative_path']])) { ?>
-                        <option
-                                value="<?= $params['version_switch_path_prefix']?>/<?= $version ?>/<?= $page['request'] ?>"
-                                <?= $version == $params['version'] ? 'SELECTED' : '' ?>
-                        >
-                            <?= $version ?>
+                <?php
+                    $maintenanceStates = array_keys($versionMap['versions']);
+                    ksort($maintenanceStates);
+                ?>
+
+                <?php foreach($maintenanceStates as $state) { ?>
+
+                    <optgroup label="<?= $state?>">
+
+                        <?php
+                            $versions = array_keys($versionMap['versions'][$state]);
+                            rsort($versions);
+                        ?>
+
+                        <?php foreach($versions as $version) { ?>
+                            <?php if(!empty($versionMap['versions'][$state][$version]['paths'][$page['relative_path']])) { ?>
+                                <option
+                                        value="<?= $params['version_switch_path_prefix']?>/<?= $version ?>/<?= $page['request'] ?>"
+                                        <?= $version == $params['version'] ? 'SELECTED' : '' ?>
+                                >
+                            <?= $versionMap['versions'][$state][$version]['name'] ?>
                         </option>
-                    <?php } ?>
+                            <?php } ?>
+                        <?php } ?>
+
+                    </optgroup>
+
                 <?php } ?>
 
             </select>

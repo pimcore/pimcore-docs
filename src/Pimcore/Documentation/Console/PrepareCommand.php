@@ -91,6 +91,16 @@ class PrepareCommand extends Command
                 'The version of the documentation'
             )
             ->addOption(
+                'repository-version-label', 'rvl',
+                InputOption::VALUE_REQUIRED,
+                'The name of version of the documentation, e.g. current (6.8)'
+            )
+            ->addOption(
+                'repository-version-maintained', 'rvm',
+                InputOption::VALUE_REQUIRED,
+                "If version is maintained, 'true' or 'false')"
+            )
+            ->addOption(
                 'version-map-file', 'm',
                 InputOption::VALUE_REQUIRED,
                 'Path to version map file for building version switch.'
@@ -166,7 +176,13 @@ class PrepareCommand extends Command
         $this->rewriteReadmeLinks($target);
 
         $repositoryVersion = $input->getOption('repository-version');
-        $versionMap = $this->updateVersionMap($target, $repositoryVersion, $input->getOption('version-map-file'));
+        $versionMap = $this->updateVersionMap(
+            $target,
+            $repositoryVersion,
+            $input->getOption('repository-version-label'),
+            $input->getOption('repository-version-maintained') == 'true' ? 'Maintained': 'Unmaintained',
+            $input->getOption('version-map-file')
+        );
 
         $this->createConfigFile($sourceDir, $buildDir, $configFile, $repositoryVersion, $versionMap, $input->getOption('version-switch-path-prefix'));
     }
@@ -274,7 +290,7 @@ class PrepareCommand extends Command
         }
     }
 
-    private function updateVersionMap(string $directory, string $version, string $versionMapFile) {
+    private function updateVersionMap(string $directory, string $version, string $versionLabel, string $maintenanceState, string $versionMapFile) {
 
         if (file_exists($versionMapFile)) {
             $versionMap = $this->readJson($versionMapFile);
@@ -292,8 +308,16 @@ class PrepareCommand extends Command
             $pathname = $file->getPathname();
             $pathname = str_replace($directory . '/', '', $pathname);
 
-            $versionMap[$version][$pathname] = $pathname;
+            $versionMap['versions'][$maintenanceState][$version]['paths'][$pathname] = $pathname;
         }
+
+        $versionMap['versions'][$maintenanceState][$version]['name'] = $versionLabel;
+
+        $versionCount = 0;
+        foreach($versionMap['versions'] as $availableMaintenanceStates => $versions) {
+            $versionCount += count($versionMap['versions'][$availableMaintenanceStates]);
+        }
+        $versionMap['hasMultipleVersions'] = ($versionCount > 1);
 
         $this->fs->dumpFile(
             $versionMapFile,
