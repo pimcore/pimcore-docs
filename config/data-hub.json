@@ -1,6 +1,6 @@
 {
-    "title": "Advanced Object Search for Pimcore",
-    "sub_title": "Advanved Object Search",
+    "title": "Data Hub for Pimcore",
+    "sub_title": "Data Hub",
     "format": "html",
     "ignore": {
         "files": [
@@ -21,10 +21,10 @@
         "float": false,
         "search": true,
         "inherit_index": true,
-        "repo": "pimcore/advanced-object-search",
+        "repo": "pimcore/data-hub",
         "twitter": false,
         "links": {
-            "GitHub": "https://github.com/pimcore/advanced-object-search",
+            "GitHub": "https://github.com/pimcore/data-hub",
             "Pimcore Core Documentation": "https://pimcore.com/docs",
             "Pimcore Academy": "https://pimcore.com/en/resources/academy",
             "Forums": "https://talk.pimcore.org",
@@ -37,14 +37,14 @@
                 "image": "https://pimcore.com/docs/6.x/themes/pimcore/img/02_970x250_Billboard.jpg"
             }
         },
-        "edit_on_github": "pimcore/advanced-object-search/edit/master/doc",
+        "edit_on_github": "pimcore/data-hub/edit/master/doc",
         "disqus": {
             "include": false
         },
         "version_info": {
             "include": true,
-            "source_url": "https://github.com/pimcore/advanced-object-search/commit/{commit_hash}",
-            "source_name": "pimcore/advanced-object-search@{short_commit_hash}"
+            "source_url": "https://github.com/pimcore/data-hub/commit/{commit_hash}",
+            "source_name": "pimcore/data-hub@{short_commit_hash}"
         }
     }
 }

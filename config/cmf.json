@@ -24,8 +24,9 @@
         "repo": "pimcore/customer-data-framework",
         "twitter": false,
         "links": {
-            "Pimcore Academy": "https://pimcore.com/en/resources/academy",
             "GitHub": "https://github.com/pimcore/customer-data-framework",
+            "Pimcore Core Documentation": "https://pimcore.com/docs",
+            "Pimcore Academy": "https://pimcore.com/en/resources/academy",
             "Forums": "https://talk.pimcore.org",
             "Gitter": "https://gitter.im/pimcore/pimcore"
         },
