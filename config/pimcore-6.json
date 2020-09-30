@@ -52,7 +52,7 @@
             "cmf": {
                 "title": "Customer Management Framework",
                 "description": "The Customer Management Framework (CMF) for Pimcore adds additional functionality for customer data management, segmentation, personalization and marketing automation. So it allows to aggregate customer data and user profiles, enrich data, link social profiles, build audience segments, trigger events, personalize experience, execute marketing automation and much more.",
-                "link": "/docs/cmf/master",
+                "link": "/docs/customer-management-framework/master",
                 "css_classes": ""
             },
             "aos": {

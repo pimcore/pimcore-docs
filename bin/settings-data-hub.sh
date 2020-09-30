@@ -10,7 +10,7 @@ maintained=( "true"   )
 repository="data-hub"
 outputPath="/docs/data-hub"
 
-configFilePath="./pimcore-docs/config"
+configFilePath="../config"
 configFileBaseName="data-hub"
 configFileDefault="data-hub.json"
 
