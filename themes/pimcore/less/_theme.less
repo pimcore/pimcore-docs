@@ -258,37 +258,12 @@ aside.Collapsible {
     }
 }
 
-.landingpage .Columns__landing div > .Nav {
-    li a {
-        // display: inline-block;
-        background: none;
-        line-height: 1.5;
-    }
-
-    > li {
-        > a {
-            display: block;
-            color: @light;
-            padding-left: 0;
-            font-size: 16px;
-            margin-top: 15px;
-
-            .Nav__arrow {
-                // display: none;
-            }
-        }
-
-        ul > li > a {
-            padding-left: 16px;
-        }
-    }
-}
-
-.landingpage .Nav__item--open > a {
-    background: transparent !important;
-}
-
 .SearchResults {
+    .SearchResults__highlight {
+        font-weight: normal;
+        background: lighten(@light, 50%);
+    }
+
     .SearchResults__title,
     .SearchResults__url,
     .SearchResults__text,
@@ -299,10 +274,37 @@ aside.Collapsible {
             color: @light;
         }
     }
+}
 
-    .SearchResults__highlight {
-        font-weight: normal;
-        background: lighten(@light, 50%);
+.landingpage {
+    .Nav__item--open > a {
+        background: transparent !important;
+    }
+
+    .Columns__landing div > .Nav {
+        li a {
+            // display: inline-block;
+            background: none;
+            line-height: 1.5;
+        }
+
+        > li {
+            > a {
+                display: block;
+                color: @light;
+                padding-left: 0;
+                font-size: 16px;
+                margin-top: 15px;
+
+                .Nav__arrow {
+                    // display: none;
+                }
+            }
+
+            ul > li > a {
+                padding-left: 16px;
+            }
+        }
     }
 }
 

@@ -8,12 +8,12 @@
     "gulp-concat": "^2.6.1",
     "gulp-less": "^4.0.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-postcss": "^9.0.0",
+    "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.0",
     "stylelint": "^13.7.1",
-    "stylelint-config-standard": "^16.0.0"
+    "stylelint-config-standard": "^20.0.0"
   },
   "scripts": {
     "build": "gulp",
