@@ -3,8 +3,8 @@
 # all paths relative to pimcore-docs/bin
 
 tags=(       "master" )
-versions=(   "master" )
-labels=(     "master" )
+versions=(   "current" )
+labels=(     "current" )
 maintained=( "true"   )
 
 repository="data-hub"

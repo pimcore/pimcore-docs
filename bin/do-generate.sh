@@ -72,6 +72,6 @@ do
   mkdir -p ${destinationFolder}
 
   cd $cwd
-  ./console --source=../../build/${repository}/${versions[$i]}/docs --configuration=../../build/${repository}/${versions[$i]}/config.json --themes=../themes --destination=${destinationFolder} generate
+  ./console generate --source=../../build/${repository}/${versions[$i]}/docs --configuration=../../build/${repository}/${versions[$i]}/config.json --themes=../themes --destination=${destinationFolder}
 
 done
