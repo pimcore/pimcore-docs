@@ -1,4 +1,4 @@
-##!/bin/bash
+#!/bin/bash
 
 # all paths relative to pimcore-docs/bin
 
@@ -7,12 +7,12 @@ versions=(   "master" )
 labels=(     "master" )
 maintained=( "true"   )
 
-repository="customer-data-framework"
-outputPath="/docs/customer-management-framework"
+repository="data-hub"
+outputPath="/docs/data-hub"
 
-configFilePath="../config"
-configFileBaseName="cmf"
-configFileDefault="cmf.json"
+configFilePath="./pimcore-docs/config"
+configFileBaseName="data-hub"
+configFileDefault="data-hub.json"
 
 additionalPrepareConfigs="--copy-root-readme"
 

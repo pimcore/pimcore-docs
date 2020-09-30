@@ -11,7 +11,7 @@ maintained=( "true"    "true"          "false"   "false"  "false"  "false"  "fal
 #versions=( "master" "6.7"    )
 
 repository="pimcore"
-outputPath="/docs"
+outputPath="/docs/pimcore"
 
 configFilePath="../config"
 versionSwitchPathPrefix="/docs"
