@@ -1,0 +1,77 @@
+{
+    "title": "Pimcore",
+    "sub_title": "",
+    "tagline": "",
+    "author": "",
+    "languages": [],
+    "format": "html",
+    "processor": "",
+    "ignore": {
+        "files": [
+            "Work_In_Progress.md"
+        ],
+        "folders": []
+    },
+    "timezone": "Europe/Vienna",
+    "live": {
+        "clean_urls": true
+    },
+    "html": {
+        "ribbon_text": "",
+        "theme": "pimcore-core",
+        "breadcrumbs": true,
+        "breadcrumb_separator": "Chevrons",
+        "toggle_code": false,
+        "date_modified": false,
+        "float": false,
+        "search": true,
+        "inherit_index": true,
+        "repo": "pimcore/pimcore",
+        "twitter": false,
+        "links": {
+            "Pimcore Academy": "https://pimcore.com/en/resources/academy",
+            "Download": "https://pimcore.com/download",
+            "GitHub": "https://github.com/pimcore/pimcore",
+            "Forums": "https://talk.pimcore.org",
+            "Gitter": "https://gitter.im/pimcore/pimcore"
+        },
+        "google_analytics": "UA-12436865-1",
+        "banner": {
+            "academy": {
+                "link": "https://pimcore.com/en/resources/academy",
+                "image": "https://pimcore.com/docs/master/themes/pimcore/img/02_970x250_Billboard.jpg"
+            }
+        },
+        "linked_docs": {
+            "datahub": {
+                "title": "Data-Hub",
+                "description": "Pimcore Data-Hub is Pimcore's data delivery & consumption platform. It integrates different input & output channel technologies into a simple & easy-to-configure system on top of Pimcore.",
+                "link": "/docs/data-hub/master",
+                "css_classes": ""
+            },
+            "cmf": {
+                "title": "Customer Management Framework",
+                "description": "The Customer Management Framework (CMF) for Pimcore adds additional functionality for customer data management, segmentation, personalization and marketing automation. So it allows to aggregate customer data and user profiles, enrich data, link social profiles, build audience segments, trigger events, personalize experience, execute marketing automation and much more.",
+                "link": "/docs/cmf/master",
+                "css_classes": ""
+            },
+            "aos": {
+                "title": "Advanced Object Search",
+                "description": "Provides advanced object search in Pimcore backend powered by Elasticsearch v6.",
+                "link": "/docs/advanced-object-search/master",
+                "css_classes": "",
+                "ribbon_text": ""
+            }
+        },
+        "edit_on_github": "pimcore/pimcore/edit/master/doc",
+        "disqus": {
+            "include": false,
+            "url_prefix": "https://pimcore.com/docs/latest/"
+        },
+        "version_info": {
+            "include": true,
+            "source_url": "https://github.com/pimcore/pimcore/commit/{commit_hash}",
+            "source_name": "pimcore/pimcore@{short_commit_hash}"
+        }
+    }
+}
