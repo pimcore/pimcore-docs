@@ -1,5 +1,7 @@
 ##!/bin/bash
 
+# all paths relative to pimcore-docs/bin
+
 tags=(       "master" )
 versions=(   "master" )
 labels=(     "master" )
@@ -14,4 +16,3 @@ configFileDefault="cmf.json"
 
 additionalPrepareConfigs="--copy-root-readme"
 
-source ./do-generate.sh

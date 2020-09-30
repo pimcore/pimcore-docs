@@ -1,6 +1,10 @@
 #!/bin/bash
 
-cwd=$(pwd)
+# load parameters from given config file
+source $1
+
+SCRIPT=`realpath $0`
+cwd=`dirname $SCRIPT`
 
 cd ../../repos/${repository}
 git reset --hard
@@ -45,7 +49,7 @@ do
    fi
 
    buildFolder="../../build/"${repository}"/"${versions[$i]}
-   mkdir -p buildFolder
+   mkdir -p ${buildFolder}
 
   ./console prepare --clear-build-dir ${additionalPrepareConfigs} --config-file=${workingConfigFile} \
      --repository-version=${versions[$i]} --version-map-file=./repos/versionmaps/${repository}.json \
@@ -62,9 +66,9 @@ do
   printf "=======================================================\n"
 
   destinationFolder="../../static"${outputPath}"/"${versions[$i]}
-  mkdir -p destinationFolder
+  mkdir -p ${destinationFolder}
 
   cd $cwd
-  ./console --source=../../build/${repository}/${versions[$i]}/docs --configuration=../../build/${repository}/${versions[$i]}/config.json --destination=${destinationFolder} generate
+  ./console --source=../../build/${repository}/${versions[$i]}/docs --configuration=../../build/${repository}/${versions[$i]}/config.json --themes=../themes --destination=${destinationFolder} generate
 
 done
