@@ -22,6 +22,7 @@
         "toggle_code": false,
         "date_modified": false,
         "float": false,
+        "search": true,
         "inherit_index": true,
         "repo": "pimcore/pimcore",
         "twitter": false,
@@ -31,10 +32,7 @@
             "GitHub": "https://github.com/pimcore/pimcore",
             "Forums": "https://talk.pimcore.org",
             "Gitter": "https://gitter.im/pimcore/pimcore",
-            "API Docs": "https://pimcore.com/docs/api/",
-            "Docs Version 6": "https://pimcore.com/docs/6.x/",
-            "Docs Version 5": "https://pimcore.com/docs/5.x/",
-            "Docs Version 4": "https://pimcore.com/docs/4.6.x/"
+            "API Docs": "https://pimcore.com/docs/api/"
         },
         "google_analytics": "UA-12436865-1",
         "landingpage_links": {

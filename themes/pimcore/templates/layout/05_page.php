@@ -23,11 +23,15 @@
             echo $this->get_navigation($rendertree, $path, isset($params['request']) ? $params['request'] : '', $base_page, $params['mode']);
             ?>
 
-            <div class="Banner" style="margin: 10px 0">
-                <a href="https://pimcore.com/en/resources/academy" target="_blank">
-                    <img style="width: 100%" src="/docs/6.x/themes/pimcore/img/02_970x250_Billboard.jpg">
-                </a>
-            </div>
+            <?php if (!empty($params['html']['banner'])) { ?>
+                <?php foreach ($params['html']['banner'] as $name => $bannerConfig) { ?>
+                    <div class="Banner">
+                        <a href="<?= $bannerConfig['link'] ?>" target="_blank">
+                            <img class="img" src="<?= $bannerConfig['image'] ?>">
+                        </a>
+                    </div>
+                <?php } ?>
+            <?php } ?>
 
             <div class="Links">
                 <?php if (!empty($params['html']['links'])) {

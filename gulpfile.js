@@ -42,7 +42,7 @@ var stylelintRules = {
     // Autoprefixer
     "at-rule-no-vendor-prefix": true,
     "media-feature-name-no-vendor-prefix": true,
-    "property-no-vendor-prefix": true,
+    // "property-no-vendor-prefix": false,
     "selector-no-vendor-prefix": true,
     "value-no-vendor-prefix": true
 };
@@ -120,15 +120,14 @@ for (var script in scripts) {
     }
 }
 
-gulp.task("styles", style_tasks);
-gulp.task("scripts", script_tasks);
+gulp.task("styles", gulp.series(style_tasks));
+gulp.task("scripts", gulp.series(script_tasks));
+gulp.task('default', gulp.series(['scripts', 'styles']));
 
-gulp.task('watch', ['default'], function () {
+gulp.task('watch', function () {
     // Watch .less files
-    gulp.watch('themes/**/less/**/*.less', ['styles']);
+    gulp.watch('themes/**/less/**/*.less', { ignoreInitial: false }, gulp.series(['styles']));
 
     // Watch .js files
-    gulp.watch('themes/**/js/source/**/*.js', ['scripts']);
+    gulp.watch('themes/**/js/source/**/*.js', { ignoreInitial: false }, gulp.series(['scripts']));
 });
-
-gulp.task('default', ['scripts', 'styles']);

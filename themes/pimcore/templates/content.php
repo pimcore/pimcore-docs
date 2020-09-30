@@ -13,7 +13,10 @@
         <?php } ?>
     </div>
 
-    <?php $this->insert('theme::partials/edit_on', ['page' => $page, 'params' => $params]) ?>
+    <div class="action-box">
+        <?php $this->insert('theme::partials/change_version', ['page' => $page, 'params' => $params]) ?>
+        <?php $this->insert('theme::partials/edit_on', ['page' => $page, 'params' => $params]) ?>
+    </div>
 
     <div class="s-content">
         <?= $page['content']; ?>
