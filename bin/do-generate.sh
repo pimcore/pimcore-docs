@@ -59,6 +59,9 @@ do
 done
 
 
+# cleanup output directory
+rm -rf ../../static${outputPath}
+
 for (( i=0; i<${arraylength}; i++ ));
 do
   printf "\n\n======================================================\n"
