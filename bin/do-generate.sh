@@ -6,6 +6,7 @@ source $1
 SCRIPT=`realpath $0`
 cwd=`dirname $SCRIPT`
 
+cd $cwd
 cd ../../repos/${repository}
 git reset --hard
 git clean -fd
