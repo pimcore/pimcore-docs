@@ -56,6 +56,32 @@
 
     <script>hljs.initHighlightingOnLoad();</script>
 
+    <script src="https://cdn.jsdelivr.net/combine/npm/lightgallery,npm/lg-autoplay,npm/lg-fullscreen,npm/lg-hash,npm/lg-pager,npm/lg-share,npm/lg-thumbnail,npm/lg-video,npm/lg-zoom" />
+    <link type="text/css" rel="stylesheet" href="https://sachinchoolur.github.io/lightGallery/lightgallery/css/lightgallery.css" />
+
+
+    <style>
+        .smallimage { width: 50% }
+    </style>
+
+    <script>
+
+        $(document).ready(function() {
+            var divElement = document.querySelector(".lightbox1");
+            console.log(divElement);
+            var imageElement = document.querySelector(".lightbox1 + p > img");
+            console.log(imageElement);
+            console.log(imageElement.src);
+
+            divElement.innerHTML = '<a href="' + imageElement.src + '"><img class="smallimage" src="' + imageElement.src + '" /></a>';
+            imageElement.remove();
+
+            $(".lightbox1").lightGallery();
+        });
+
+    </script>
+
+
     <?php if ($params['html']['search']) {
         ?>
         <!-- Tipue Search -->

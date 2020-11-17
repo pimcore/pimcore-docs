@@ -6,7 +6,8 @@ var cssnano = require('cssnano'),
     postcss = require('gulp-postcss'),
     stylelint = require('gulp-stylelint'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify');
+    babel = require('gulp-babel'),
+    uglify = require('gulp-uglifyes');
 
 var styles = {
     'pimcore-core': {
@@ -27,6 +28,7 @@ var scripts = {
             "vendor/daux/daux.io/themes/daux/js/highlight.pack.js",
             "themes/pimcore/js/source/pimcore_code_section.js",
             "themes/pimcore/js/source/pimcore_video.js",
+            "themes/pimcore/js/source/pimcore_image_lightbox.js",
             "themes/pimcore/js/source/pimcore.js",
             "vendor/daux/daux.io/themes/daux/js/daux.js"
         ],
@@ -73,7 +75,11 @@ function createScriptTask(filename, sources, destination) {
             .pipe(plumber())
             .pipe(concat(filename))
             .pipe(gulp.dest(destination))
-            .pipe(uglify())
+            .pipe(uglify({
+                mangle: false,
+                ecma: 6
+            }))
+            // .pipe(uglify())
             .pipe(rename({suffix: '.min'}))
             .pipe(gulp.dest(destination));
     }

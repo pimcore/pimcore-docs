@@ -56,6 +56,17 @@ prepare command for all versions twice, so that version map file can be fully po
 Only then the version switch is visible on all possible pages. 
 
 
+## Lightbox Images
+For converting images to small thumbnails with simple lightbox functionality, use following syntax:
+```
+<div class="image-as-lightbox"></div>
+
+![Profile Menu](../../img/user_docs/profile-menu.png)
+``` 
+The image that comes directly after `.image-as-lightbox` element is converted. 
+
+ 
+
 ## Using `pimcore-docs` for other package's documentations
 
 This tool can be used for generating docs of any package (e.g. for a Pimcore Bundle). To do so, follow these steps:
