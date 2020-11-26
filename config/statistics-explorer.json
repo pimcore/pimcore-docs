@@ -1,0 +1,49 @@
+{
+    "title": "Statistics Explorer for Pimcore",
+    "sub_title": "Statistics Explorer",
+    "format": "html",
+    "ignore": {
+        "files": [
+            "Work_In_Progress.md"
+        ],
+        "folders": []
+    },
+    "timezone": "Europe/Vienna",
+    "live": {
+        "clean_urls": true
+    },
+    "html": {
+        "ribbon_text": "Enterprise",
+        "theme": "pimcore-core",
+        "breadcrumbs": true,
+        "breadcrumb_separator": "Chevrons",
+        "toggle_code": false,
+        "date_modified": false,
+        "float": false,
+        "search": true,
+        "inherit_index": true,
+        "repo": "pimcore/statistics-explorer",
+        "twitter": false,
+        "links": {
+            "Pimcore Core Documentation": "https://pimcore.com/docs",
+            "Pimcore Academy": "https://pimcore.com/en/resources/academy",
+            "Forums": "https://talk.pimcore.org",
+            "Gitter": "https://gitter.im/pimcore/pimcore"
+        },
+        "google_analytics": "UA-12436865-1",
+        "banner": {
+            "academy": {
+                "link": "https://pimcore.com/en/resources/academy",
+                "image": "https://pimcore.com/docs/pimcore/master/themes/pimcore/img/02_970x250_Billboard.jpg"
+            }
+        },
+        "disqus": {
+            "include": false
+        },
+        "version_info": {
+            "include": true,
+            "source_url": "https://github.com/pimcore/statistics-explorer/commit/{commit_hash}",
+            "source_name": "pimcore/statistics-explorer@{short_commit_hash}"
+        }
+    }
+}

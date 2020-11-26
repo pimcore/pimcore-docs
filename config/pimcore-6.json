@@ -43,12 +43,77 @@
             }
         },
         "linked_docs": {
+            "portal-engine": {
+                "title": "Portal Engine",
+                "description": "Create Asset Experience Portals and Product Experience Portals just by configuration.",
+                "link": "/docs/portal-engine/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
             "datahub": {
-                "title": "Data-Hub",
-                "description": "Pimcore Data-Hub is Pimcore's data delivery & consumption platform. It integrates different input & output channel technologies into a simple & easy-to-configure system on top of Pimcore.",
+                "title": "Datahub",
+                "description": "Pimcore Datahub  is Pimcore's data delivery & consumption platform. It integrates different input & output channel technologies into a simple & easy-to-configure system on top of Pimcore.",
                 "link": "/docs/data-hub/current",
                 "css_classes": ""
             },
+            "datahub-productsup": {
+                "title": "Datahub  Productsup Integration",
+                "description": "This extension integrates productsup into Pimcore Datahub .",
+                "link": "/docs/data-hub-productsup/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+            "datahub-file-export": {
+                "title": "Datahub  File Export",
+                "description": "Publish the data you store in Pimcore automatically to flat CSV, XML, or JSON files with simple configurations inside Pimcore's Data Hub.",
+                "link": "/docs/data-hub-file-export/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+            "datahub-simple-rest": {
+                "title": "Datahub  Simple Rest API",
+                "description": "This extension adds a simple read-ony rest API endpoint to Pimcore Datahub  for assets and data objects. All exposed data can be configured, is indexed in Elasticsearch and delivered from there for better query performance and scalability.",
+                "link": "/docs/data-hub-simple-rest/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+            "datahub-ci-hub": {
+                "title": "Datahub  CI Hub Integration",
+                "description": "This extension integrates CI Hub into Pimcore Datahub .",
+                "link": "/docs/data-hub-ci-hub/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+            "enterprise-metadata": {
+                "title": "Enterprise Metadata",
+                "description": "This extension adds Enterprise Metadata to Pimcore with data object like editor and additional data types for asset metadata.",
+                "link": "/docs/asset-metadata/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+            "direct-edit": {
+                "title": "Pimcore Direct Edit",
+                "description": "Pimcore Direct Edit allows you editing Pimcore assets locally in your preferred editor and upload them right away back to Pimcore.",
+                "link": "/docs/direct-edit/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+            "translations-provider": {
+                "title": "Translation Provider Interface",
+                "description": "This bundle integrates translations providers like translations.com with Pimcore.",
+                "link": "/docs/translations-provider-interfaces/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+            "statistics-explorer": {
+                "title": "Statistics Explorer",
+                "description": "Provides a simple statistics tool, that can be integrated into your application and allows users to dig into data and create statistic reports.",
+                "link": "/docs/statistics-explorer/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+
+
             "cmf": {
                 "title": "Customer Management Framework",
                 "description": "The Customer Management Framework (CMF) for Pimcore adds additional functionality for customer data management, segmentation, personalization and marketing automation. So it allows to aggregate customer data and user profiles, enrich data, link social profiles, build audience segments, trigger events, personalize experience, execute marketing automation and much more.",
