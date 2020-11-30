@@ -33,8 +33,8 @@
         "google_analytics": "UA-12436865-1",
         "banner": {
             "academy": {
-                "link": "https://hopin.to/events/pimcore-inspire",
-                "image": "https://pimcore.com/docs/pimcore/master/themes/pimcore/img/DOKU-PCX-02.jpg"
+                "link": "https://pimcore.com/en/resources/academy",
+                "image": "https://pimcore.com/docs/pimcore/master/themes/pimcore/img/02_970x250_Billboard.jpg"
             }
         },
         "edit_on_github": "pimcore/advanced-object-search/edit/master/doc",
