@@ -2,10 +2,10 @@
 
 # all paths relative to pimcore-docs/bin
 
-tags=(       "master" )
-versions=(   "current" )
-labels=(     "current" )
-maintained=( "true"   )
+tags=(       "master"  "1.2"           )
+versions=(   "master"  "current"       )
+labels=(     "master"  "1.2 (current)" )
+maintained=( "true"    "true"          )
 
 repository="data-hub-simple-rest"
 outputPath="/docs/data-hub-simple-rest"
