@@ -30,7 +30,7 @@
             "Pimcore Academy": "https://pimcore.com/en/resources/academy",
             "Download": "https://pimcore.com/download",
             "GitHub": "https://github.com/pimcore/pimcore",
-            "Forums": "https://talk.pimcore.org",
+            "Forums": "https://github.com/pimcore/pimcore/discussions",
             "Gitter": "https://gitter.im/pimcore/pimcore",
             "API Docs": "https://pimcore.com/docs/api/"
         },
@@ -39,7 +39,6 @@
             "Development Documentation": "Development_Documentation",
             "User Documentation": "User_Documentation"
         },
-        "edit_on_github": "pimcore/pimcore/edit/master/doc",
         "disqus": {
             "include": false,
             "url_prefix": "https://pimcore.com/docs/latest/"

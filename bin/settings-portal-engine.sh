@@ -4,7 +4,7 @@
 
 tags=(      "main"  "2.0"           "v1.0.4" )
 versions=(  "main"  "current"       "1.0" )
-labels=(    "main"  "current (2.0)" "1.0" )
+labels=(    "main"  "2.0 (current)" "1.0" )
 maintained=("true"  "true"          "false" )
 
 

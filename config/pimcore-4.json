@@ -31,7 +31,7 @@
         "links": {
             "Download": "https://pimcore.com/download",
             "GitHub": "https://github.com/pimcore/pimcore",
-            "Forums": "https://talk.pimcore.org",
+            "Forums": "https://github.com/pimcore/pimcore/discussions",
             "Gitter": "https://gitter.im/pimcore/pimcore",
             "API Docs": "https://pimcore.com/docs/api/"
         },
@@ -40,7 +40,6 @@
         "landingpage_links": {
             "Development Documentation": "Development_Documentation"
         },
-        "edit_on_github": "pimcore/pimcore/edit/pimcore4/doc",
         "disqus": {
             "include": false,
             "url_prefix": "https://pimcore.com/docs/latest/"

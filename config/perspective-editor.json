@@ -1,11 +1,10 @@
 {
-    "title": "CI Hub Integration for Data Hub",
-    "sub_title": "Data Hub CI Hub",
+    "title": "Perspective Editor for Pimcore",
+    "sub_title": "Perspective Editor",
     "format": "html",
     "ignore": {
         "files": [
-            "Work_In_Progress.md",
-            ".gitkeep"
+            "Work_In_Progress.md"
         ],
         "folders": []
     },
@@ -14,7 +13,6 @@
         "clean_urls": true
     },
     "html": {
-        "ribbon_text": "Enterprise",
         "theme": "pimcore-core",
         "breadcrumbs": true,
         "breadcrumb_separator": "Chevrons",
@@ -23,9 +21,10 @@
         "float": false,
         "search": true,
         "inherit_index": true,
-        "repo": "pimcore/data-hub-ci-hub",
+        "repo": "pimcore/perspective-editor",
         "twitter": false,
         "links": {
+            "GitHub": "https://github.com/pimcore/perspective-editor",
             "Pimcore Core Documentation": "https://pimcore.com/docs",
             "Pimcore Academy": "https://pimcore.com/en/resources/academy",
             "Forums": "https://github.com/pimcore/pimcore/discussions",
@@ -38,13 +37,14 @@
                 "image": "https://pimcore.com/docs/pimcore/current/themes/pimcore/img/02_970x250_Billboard.jpg"
             }
         },
+        "edit_on_github": "pimcore/perspective-editor/edit/main/doc",
         "disqus": {
             "include": false
         },
         "version_info": {
             "include": true,
-            "source_url": "https://github.com/pimcore/data-hub-ci-hub/commit/{commit_hash}",
-            "source_name": "pimcore/data-hub-ci-hub@{short_commit_hash}"
+            "source_url": "https://github.com/pimcore/perspective-editor/commit/{commit_hash}",
+            "source_name": "pimcore/perspective-editor@{short_commit_hash}"
         }
     }
 }

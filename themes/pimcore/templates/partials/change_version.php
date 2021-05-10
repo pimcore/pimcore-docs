@@ -18,7 +18,14 @@
 
                         <?php
                             $versions = array_keys($versionMap['versions'][$state]);
-                            rsort($versions);
+
+                            //sort based on version name
+                            $versionNames = [];
+                            foreach($versions as $version) {
+                                $versionNames[$version] = $versionMap['versions'][$state][$version]['name'];
+                            }
+                            arsort($versionNames, SORT_NATURAL);
+                            $versions = array_keys($versionNames);
                         ?>
 
                         <?php foreach($versions as $version) { ?>

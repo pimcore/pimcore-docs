@@ -32,14 +32,14 @@
             "Pimcore Academy": "https://pimcore.com/en/resources/academy",
             "Download": "https://pimcore.com/download",
             "GitHub": "https://github.com/pimcore/pimcore",
-            "Forums": "https://talk.pimcore.org",
+            "Forums": "https://github.com/pimcore/pimcore/discussions",
             "Gitter": "https://gitter.im/pimcore/pimcore"
         },
         "google_analytics": "UA-12436865-1",
         "banner": {
             "academy": {
                 "link": "https://pimcore.com/en/resources/academy",
-                "image": "https://pimcore.com/docs/pimcore/master/themes/pimcore/img/02_970x250_Billboard.jpg"
+                "image": "https://pimcore.com/docs/pimcore/current/themes/pimcore/img/02_970x250_Billboard.jpg"
             }
         },
         "linked_docs": {
@@ -49,6 +49,13 @@
                 "link": "/docs/portal-engine/current",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
+            },
+            "dataimporter": {
+                "title": "Data Importer",
+                "description": "This extension adds a comprehensive import functionality to Pimcore Datahub.",
+                "link": "/docs/data-importer/current",
+                "css_classes": "",
+                "ribbon_text": ""
             },
             "datahub": {
                 "title": "Datahub",
@@ -112,8 +119,6 @@
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
-
-
             "cmf": {
                 "title": "Customer Management Framework",
                 "description": "The Customer Management Framework (CMF) for Pimcore adds additional functionality for customer data management, segmentation, personalization and marketing automation. So it allows to aggregate customer data and user profiles, enrich data, link social profiles, build audience segments, trigger events, personalize experience, execute marketing automation and much more.",
@@ -122,13 +127,20 @@
             },
             "aos": {
                 "title": "Advanced Object Search",
-                "description": "Provides advanced object search in Pimcore backend powered by Elasticsearch v6.",
+                "description": "Provides advanced object search in Pimcore backend powered by Elasticsearch v7.",
                 "link": "/docs/advanced-object-search/current",
+                "css_classes": "",
+                "ribbon_text": ""
+            },
+            "pe": {
+                "title": "Perspective Editor",
+                "description": "Provides an editor for Pimcore that allows to add, remove and edit custom views and perspectives.",
+                "link": "/docs/perspective-editor/current",
                 "css_classes": "",
                 "ribbon_text": ""
             }
         },
-        "edit_on_github": "pimcore/pimcore/edit/master/doc",
+        "edit_on_github": "pimcore/pimcore/10.x/master/doc",
         "disqus": {
             "include": false,
             "url_prefix": "https://pimcore.com/docs/latest/"

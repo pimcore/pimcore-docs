@@ -27,14 +27,14 @@
             "GitHub": "https://github.com/pimcore/customer-data-framework",
             "Pimcore Core Documentation": "https://pimcore.com/docs",
             "Pimcore Academy": "https://pimcore.com/en/resources/academy",
-            "Forums": "https://talk.pimcore.org",
+            "Forums": "https://github.com/pimcore/pimcore/discussions",
             "Gitter": "https://gitter.im/pimcore/pimcore"
         },
         "google_analytics": "UA-12436865-1",
         "banner": {
             "academy": {
                 "link": "https://pimcore.com/en/resources/academy",
-                "image": "https://pimcore.com/docs/pimcore/master/themes/pimcore/img/02_970x250_Billboard.jpg"
+                "image": "https://pimcore.com/docs/pimcore/current/themes/pimcore/img/02_970x250_Billboard.jpg"
             }
         },
         "edit_on_github": "pimcore/customer-data-framework/edit/master/doc",
