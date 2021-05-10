@@ -201,7 +201,7 @@ class PrepareCommand extends Command
     }
 
     private function copyRootReadme($sourceDir, $buildDir) {
-        $this->io->writeln(sprintf('Copying <comment>$sourceDir ../README.md</comment> to work dir', $sourceDir));
+        $this->io->writeln(sprintf('Copying <comment>%s../README.md</comment> to work dir', $sourceDir));
 
         $targetFile = $buildDir . '/docs/_index.md';
         $this->fs->copy($sourceDir . '/../README.md', $targetFile);
@@ -368,6 +368,9 @@ class PrepareCommand extends Command
     private function readGitVersionInfo(string $dir): string
     {
         $git = new GitWrapper();
+
+        echo $dir . "\n\n";
+
         $git = $git->workingCopy($dir);
 
         return trim($git->run(['rev-parse', 'HEAD'])->getOutput());
