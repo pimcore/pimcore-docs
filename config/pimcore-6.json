@@ -140,7 +140,7 @@
                 "ribbon_text": ""
             }
         },
-        "edit_on_github": "pimcore/pimcore/10.x/master/doc",
+        "edit_on_github": "pimcore/pimcore/edit/10.x/doc",
         "disqus": {
             "include": false,
             "url_prefix": "https://pimcore.com/docs/latest/"
