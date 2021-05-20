@@ -2,7 +2,7 @@
 
 # all paths relative to pimcore-docs/bin
 
-tags=(      "main"    "main"          )
+tags=(      "main"    "1.0"          )
 versions=(  "main"    "current"      )
 labels=(    "main"    "1.0 (current)")
 maintained=("true"    "true"         )
