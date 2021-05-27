@@ -2,10 +2,10 @@
 
 # all paths relative to pimcore-docs/bin
 
-tags=(      "master"    "4.0"             "v3.3.1" )
-versions=(  "master"    "current"         "3.1"    )
-labels=(    "master"    "4.0 (current)"   "3.1"    )
-maintained=("true"      "true"            "false"  )
+tags=(      "4.x"        "4.0"             "v3.3.1" )
+versions=(  "4.1"        "current"         "3.1"    )
+labels=(    "4.1 (dev)"  "4.0 (current)"   "3.1"    )
+maintained=("true"       "true"            "false"  )
 
 
 repository="advanced-object-search"

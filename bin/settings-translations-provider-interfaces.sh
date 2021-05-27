@@ -2,10 +2,10 @@
 
 # all paths relative to pimcore-docs/bin
 
-tags=(       "master" "2.2" )
-versions=(   "master" "current" )
-labels=(     "master" "2.2 (current)")
-maintained=( "true"   "true")
+tags=(       "2.x"        "2.2" )
+versions=(   "2.3"        "current" )
+labels=(     "2.3 (dev)"  "2.2 (current)")
+maintained=( "true"       "true")
 
 repository="translations-provider-interfaces"
 outputPath="/docs/translations-provider-interfaces"

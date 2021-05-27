@@ -3,10 +3,10 @@
 # all paths relative to pimcore-docs/bin
 
 
-tags=(       "master" "1.3"           "v1.2.0" )
-versions=(   "master" "current"       "1.2" )
-labels=(     "master" "1.3 (current)" "1.2" )
-maintained=( "true"   "true"          "false" )
+tags=(       "1.x"        "1.3"           "v1.2.0" )
+versions=(   "1.4"        "current"       "1.2" )
+labels=(     "1.4 (dev)"  "1.3 (current)" "1.2" )
+maintained=( "true"       "true"          "false" )
 
 repository="statistics-explorer"
 outputPath="/docs/statistics-explorer"
