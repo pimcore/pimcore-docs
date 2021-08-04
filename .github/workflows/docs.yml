@@ -80,4 +80,10 @@ jobs:
               with:
                 type: 'zip'
                 filename: 'release.zip'
-                #path: '../../static/'
+                path: './static/'
+
+            - uses: ncipollo/release-action@v1
+              with:
+                artifacts: "release.tar.gz,foo/*.txt"
+                bodyFile: "body.md"
+                token: ${{ secrets.GITHUB_TOKEN }}

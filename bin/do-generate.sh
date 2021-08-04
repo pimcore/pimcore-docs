@@ -70,7 +70,7 @@ done
 
 
 # cleanup output directory
-rm -rf ../../static${outputPath}
+rm -rf ./static${outputPath}
 
 for (( i=0; i<${arraylength}; i++ ));
 do
@@ -78,7 +78,7 @@ do
   echo "Generating version: " ${tags[$i]} " : " ${versions[$i]}
   printf "=======================================================\n"
 
-  destinationFolder="../../static"${outputPath}"/"${versions[$i]}
+  destinationFolder="./static"${outputPath}"/"${versions[$i]}
   mkdir -p ${destinationFolder}
 
   cd $cwd
