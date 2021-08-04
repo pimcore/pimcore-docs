@@ -70,6 +70,7 @@ do
      --repository-version-label="${labels[$i]}" --repository-version-maintained=${maintained[$i]} \
      --version-switch-path-prefix=${outputPath} ${docFolder} ${buildFolder}
 
+  cat ./repos/versionmaps/${repository}.json
 done
 
 
