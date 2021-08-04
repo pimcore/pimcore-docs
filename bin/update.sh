@@ -1,8 +1,6 @@
 ##!/bin/bash
 
-./bin/do-generate.sh ./bin/settings-pimcore.sh
 
-#./do-generate.sh ./settings-aos.sh
 #./do-generate.sh ./settings-asset-metadata.sh
 #./do-generate.sh ./settings-cmf.sh
 #./do-generate.sh ./settings-data-hub.sh

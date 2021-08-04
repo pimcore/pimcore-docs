@@ -24,5 +24,8 @@ jobs:
             - name: "Install dependencies with Composer"
               uses: "ramsey/composer-install@v1"
 
-            - name: "Run generation of docs"
-              run: "./bin/update.sh"
+            - name: "Docs for pimcore/pimcore"
+              run: "./bin/do-generate.sh ./bin/settings-pimcore.sh"
+
+            - name: "Docs for pimcore/advanced-object-search"
+              run: "./bin/do-generate.sh ./bin/settings-aos.sh"

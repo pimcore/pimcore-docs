@@ -7,7 +7,7 @@ versions=(  "4.1"        "current"         "3.1"    )
 labels=(    "4.1 (dev)"  "4.0 (current)"   "3.1"    )
 maintained=("true"       "true"            "false"  )
 
-
+gitRepository="https://github.com/pimcore/advanced-object-search.git"
 repository="advanced-object-search"
 outputPath="/docs/advanced-object-search"
 
