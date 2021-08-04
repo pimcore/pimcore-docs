@@ -7,7 +7,7 @@ versions=(  "1.1"          "current"      )
 labels=(    "1.1 (dev)"    "1.0 (current)")
 maintained=("true"         "true"         )
 
-
+gitRepository="https://github.com/pimcore/perspective-editor.git"
 repository="perspective-editor"
 outputPath="/docs/perspective-editor"
 

@@ -7,6 +7,7 @@ versions=(   "2.3"        "current" )
 labels=(     "2.3 (dev)"  "2.2 (current)")
 maintained=( "true"       "true")
 
+gitRepository="git@github.com:pimcore/translations-provider-interfaces.git"
 repository="translations-provider-interfaces"
 outputPath="/docs/translations-provider-interfaces"
 

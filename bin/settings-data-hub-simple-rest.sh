@@ -7,6 +7,7 @@ versions=(   "1.3"        "current"       )
 labels=(     "1.3 (dev)"  "1.2 (current)" )
 maintained=( "true"       "true"          )
 
+gitRepository="git@github.com:pimcore/data-hub-simple-rest.git"
 repository="data-hub-simple-rest"
 outputPath="/docs/data-hub-simple-rest"
 

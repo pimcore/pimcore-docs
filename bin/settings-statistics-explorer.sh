@@ -8,6 +8,7 @@ versions=(   "1.4"        "current"       "1.2" )
 labels=(     "1.4 (dev)"  "1.3 (current)" "1.2" )
 maintained=( "true"       "true"          "false" )
 
+gitRepository="git@github.com:pimcore/statistics-explorer.git"
 repository="statistics-explorer"
 outputPath="/docs/statistics-explorer"
 

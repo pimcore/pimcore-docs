@@ -7,7 +7,7 @@ versions=(  "2.1"        "current"       "1.0" )
 labels=(    "2.1 (dev)"  "2.0 (current)" "1.0" )
 maintained=("true"       "true"          "false" )
 
-
+gitRepository="git@github.com:pimcore/portal-engine.git"
 repository="portal-engine"
 outputPath="/docs/portal-engine"
 

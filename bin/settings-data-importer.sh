@@ -7,7 +7,7 @@ versions=(  "1.2"       "current"       "1.0")
 labels=(    "1.2 (dev)" "1.1 (current)" "1.0")
 maintained=("true"      "true"          "false")
 
-
+gitRepository="https://github.com/pimcore/data-importer.git"
 repository="data-importer"
 outputPath="/docs/data-importer"
 

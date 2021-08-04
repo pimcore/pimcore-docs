@@ -7,6 +7,7 @@ versions=(   "1.1"       "current" )
 labels=(     "1.1 (dev)" "1.0 (current)" )
 maintained=( "true"      "true"   )
 
+gitRepository="git@github.com:pimcore/data-hub-ci-hub.git"
 repository="data-hub-ci-hub"
 outputPath="/docs/data-hub-ci-hub"
 
