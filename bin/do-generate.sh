@@ -20,7 +20,7 @@ git pull
 arraylength=${#tags[@]}
 
 # we need to run the prepare command twice, so that we have an up-to-date version map file
-for (( i=0; i<2; i++ ));
+for (( z=0; z<2; z++ ));
 do
   # use for loop to read all values and indexes
   for (( i=0; i<${arraylength}; i++ ));
