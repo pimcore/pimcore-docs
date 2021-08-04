@@ -18,5 +18,8 @@ jobs:
                   coverage: "none"
                   php-version: "7.4"
 
+            - name: "Install dependencies with Composer"
+              uses: "ramsey/composer-install@v1"
+
             - name: "Run generation of docs"
               run: "./bin/update.sh"

@@ -1,8 +1,6 @@
 ##!/bin/bash
 
-composer install
-
-./do-generate.sh ./settings-pimcore.sh
+./bin/do-generate.sh ./bin/settings-pimcore.sh
 
 #./do-generate.sh ./settings-aos.sh
 #./do-generate.sh ./settings-asset-metadata.sh
