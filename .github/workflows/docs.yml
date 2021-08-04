@@ -12,6 +12,9 @@ jobs:
         name: "Generate docs with Daux"
         runs-on: "ubuntu-20.04"
         steps:
+            - name: "Path"
+              run: "pwd"
+
             - name: Install SSH Key
               uses: shimataro/ssh-key-action@v2
               with:
@@ -87,6 +90,5 @@ jobs:
 
             - uses: ncipollo/release-action@v1
               with:
-                artifacts: "release.tar.gz,foo/*.txt"
-                bodyFile: "body.md"
+                artifacts: "release.zip"
                 token: ${{ secrets.GITHUB_TOKEN }}
