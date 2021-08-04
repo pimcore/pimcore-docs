@@ -90,6 +90,7 @@ jobs:
 
             - uses: ncipollo/release-action@v1
               with:
+                allowUpdates: true
                 tag: RELEASE
                 artifacts: "release.zip"
                 token: ${{ secrets.GITHUB_TOKEN }}
