@@ -7,6 +7,7 @@ versions=(   "10.2"         "current"            "10.0"     "6.9"     "6.8"     
 labels=(     "10.2 (dev)"   "10.1 (current)"     "10.0"     "6.9"     "6.8"     "6.7"     "6.6"     "6.5"    "6.4"    "6.3"    "6.2"    "6.1"    "6.0"    "5.8"    "4.6"   )
 maintained=( "true"         "true"               "false"    "false"    "false"   "false"   "false"   "false"  "false"  "false"  "false"  "false"  "false"  "false"  "false" )
 
+gitRepository="https://github.com/pimcore/pimcore.git"
 repository="pimcore"
 outputPath="/docs/pimcore"
 

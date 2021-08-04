@@ -7,7 +7,10 @@ SCRIPT=`realpath $0`
 cwd=`dirname $SCRIPT`
 
 cd $cwd
-cd ../../repos/${repository}
+
+mkdir -p ../../repos
+
+git clone ${gitRepository} ../../repos/${repository}
 git reset --hard
 git clean -fd
 git pull
@@ -52,6 +55,12 @@ do
    buildFolder="../../build/"${repository}"/"${versions[$i]}
    mkdir -p ${buildFolder}
 
+  ./console prepare --clear-build-dir ${additionalPrepareConfigs} --config-file=${workingConfigFile} \
+     --repository-version=${versions[$i]} --version-map-file=./repos/versionmaps/${repository}.json \
+     --repository-version-label="${labels[$i]}" --repository-version-maintained=${maintained[$i]} \
+     --version-switch-path-prefix=${outputPath} ${docFolder} ${buildFolder}
+
+  # run prepare twice to have an up to date version map
   ./console prepare --clear-build-dir ${additionalPrepareConfigs} --config-file=${workingConfigFile} \
      --repository-version=${versions[$i]} --version-map-file=./repos/versionmaps/${repository}.json \
      --repository-version-label="${labels[$i]}" --repository-version-maintained=${maintained[$i]} \
