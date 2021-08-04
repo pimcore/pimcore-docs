@@ -84,4 +84,6 @@ do
   cd $cwd
   ./console generate --source=../../build/${repository}/${versions[$i]}/docs --configuration=../../build/${repository}/${versions[$i]}/config.json --themes=../themes --destination=${destinationFolder}
 
+
+  realpath ${destinationFolder}
 done

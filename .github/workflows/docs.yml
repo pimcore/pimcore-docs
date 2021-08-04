@@ -80,4 +80,4 @@ jobs:
               with:
                 type: 'zip'
                 filename: 'release.zip'
-                path: '../../static/'
+                #path: '../../static/'
