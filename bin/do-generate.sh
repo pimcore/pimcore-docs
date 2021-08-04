@@ -65,6 +65,10 @@ do
      --repository-version=${versions[$i]} --version-map-file=./repos/versionmaps/${repository}.json \
      --repository-version-label="${labels[$i]}" --repository-version-maintained=${maintained[$i]} \
      --version-switch-path-prefix=${outputPath} ${docFolder} ${buildFolder}
+  ./console prepare --clear-build-dir ${additionalPrepareConfigs} --config-file=${workingConfigFile} \
+     --repository-version=${versions[$i]} --version-map-file=./repos/versionmaps/${repository}.json \
+     --repository-version-label="${labels[$i]}" --repository-version-maintained=${maintained[$i]} \
+     --version-switch-path-prefix=${outputPath} ${docFolder} ${buildFolder}
 
 done
 
