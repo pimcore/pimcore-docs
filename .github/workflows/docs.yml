@@ -74,3 +74,10 @@ jobs:
 
             - name: "Docs for pimcore/perspective-editor"
               run: "./bin/do-generate.sh ./bin/settings-perspective-editor.sh"
+
+            - name: Archive Release
+              uses: thedoctor0/zip-release@master
+              with:
+                type: 'zip'
+                filename: 'release.zip'
+                directory: '../../static/'
