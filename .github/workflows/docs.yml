@@ -32,48 +32,48 @@ jobs:
 
             - name: "Install dependencies with Composer"
               uses: "ramsey/composer-install@v1"
-#
-#            - name: "Docs for pimcore/pimcore"
-#              run: "./bin/do-generate.sh ./bin/settings-pimcore.sh"
-#
-#            - name: "Docs for pimcore/advanced-object-search"
-#              run: "./bin/do-generate.sh ./bin/settings-aos.sh"
-#
-#            - name: "Docs for pimcore/asset-metadata-class-definitions"
-#              run: "./bin/do-generate.sh ./bin/settings-asset-metadata.sh"
-#
-#            - name: "Docs for pimcore/customer-data-framework"
-#              run: "./bin/do-generate.sh ./bin/settings-cmf.sh"
-#
-#            - name: "Docs for pimcore/data-hub"
-#              run: "./bin/do-generate.sh ./bin/settings-data-hub.sh"
-#
-#            - name: "Docs for pimcore/data-hub-ci-hub"
-#              run: "./bin/do-generate.sh ./bin/settings-data-hub-ci-hub.sh"
-#
-#            - name: "Docs for pimcore/data-hub-file-export"
-#              run: "./bin/do-generate.sh ./bin/settings-data-hub-file-export.sh"
-#
-#            - name: "Docs for pimcore/data-hub-productsup"
-#              run: "./bin/do-generate.sh ./bin/settings-data-hub-productsup.sh"
-#
-#            - name: "Docs for pimcore/data-hub-simple-rest"
-#              run: "./bin/do-generate.sh ./bin/settings-data-hub-simple-rest.sh"
-#
-#            - name: "Docs for pimcore/direct-edit"
-#              run: "./bin/do-generate.sh ./bin/settings-direct-edit.sh"
-#
-#            - name: "Docs for pimcore/portal-engine"
-#              run: "./bin/do-generate.sh ./bin/settings-portal-engine.sh"
-#
-#            - name: "Docs for pimcore/statistics-explorer"
-#              run: "./bin/do-generate.sh ./bin/settings-statistics-explorer.sh"
-#
-#            - name: "Docs for pimcore/translations-provider-interfaces"
-#              run: "./bin/do-generate.sh ./bin/settings-translations-provider-interfaces.sh"
-#
-#            - name: "Docs for pimcore/data-importer"
-#              run: "./bin/do-generate.sh ./bin/settings-data-importer.sh"
+
+            - name: "Docs for pimcore/pimcore"
+              run: "./bin/do-generate.sh ./bin/settings-pimcore.sh"
+
+            - name: "Docs for pimcore/advanced-object-search"
+              run: "./bin/do-generate.sh ./bin/settings-aos.sh"
+
+            - name: "Docs for pimcore/asset-metadata-class-definitions"
+              run: "./bin/do-generate.sh ./bin/settings-asset-metadata.sh"
+
+            - name: "Docs for pimcore/customer-data-framework"
+              run: "./bin/do-generate.sh ./bin/settings-cmf.sh"
+
+            - name: "Docs for pimcore/data-hub"
+              run: "./bin/do-generate.sh ./bin/settings-data-hub.sh"
+
+            - name: "Docs for pimcore/data-hub-ci-hub"
+              run: "./bin/do-generate.sh ./bin/settings-data-hub-ci-hub.sh"
+
+            - name: "Docs for pimcore/data-hub-file-export"
+              run: "./bin/do-generate.sh ./bin/settings-data-hub-file-export.sh"
+
+            - name: "Docs for pimcore/data-hub-productsup"
+              run: "./bin/do-generate.sh ./bin/settings-data-hub-productsup.sh"
+
+            - name: "Docs for pimcore/data-hub-simple-rest"
+              run: "./bin/do-generate.sh ./bin/settings-data-hub-simple-rest.sh"
+
+            - name: "Docs for pimcore/direct-edit"
+              run: "./bin/do-generate.sh ./bin/settings-direct-edit.sh"
+
+            - name: "Docs for pimcore/portal-engine"
+              run: "./bin/do-generate.sh ./bin/settings-portal-engine.sh"
+
+            - name: "Docs for pimcore/statistics-explorer"
+              run: "./bin/do-generate.sh ./bin/settings-statistics-explorer.sh"
+
+            - name: "Docs for pimcore/translations-provider-interfaces"
+              run: "./bin/do-generate.sh ./bin/settings-translations-provider-interfaces.sh"
+
+            - name: "Docs for pimcore/data-importer"
+              run: "./bin/do-generate.sh ./bin/settings-data-importer.sh"
 
             - name: "Docs for pimcore/perspective-editor"
               run: "./bin/do-generate.sh ./bin/settings-perspective-editor.sh"
