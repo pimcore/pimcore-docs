@@ -2,10 +2,10 @@
 
 # all paths relative to pimcore-docs/bin
 
-tags=(      "1.x"       "1.1"           "v1.0.1" )
-versions=(  "1.2"       "current"       "1.0")
-labels=(    "1.2 (dev)" "1.1 (current)" "1.0")
-maintained=("true"      "true"          "false")
+tags=(      "1.x"       "1.2"            "v1.1.5" "v1.0.1" )
+versions=(  "1.3"       "current"        "1.1"    "1.0")
+labels=(    "1.3 (dev)" "1.2 (current)"  "1.1"    "1.0")
+maintained=("true"      "true"           "false"  "false")
 
 gitRepository="https://github.com/pimcore/data-importer.git"
 repository="data-importer"
