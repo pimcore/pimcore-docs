@@ -113,9 +113,9 @@
                 "ribbon_text": "Enterprise"
             },
             "headless-documents": {
-                "title": "Headlesse Documents",
+                "title": "Headless Documents",
                 "description": "This extension adds a new document type \"Headless Document\" for managing website data in a headless manner.",
-                "link": "/docs/workflow-designer/current",
+                "link": "/docs/headless-documents/current",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
