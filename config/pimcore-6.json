@@ -105,6 +105,27 @@
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
+            "workflow-designer": {
+                "title": "Workflow Designer",
+                "description": "The Workflow Designer extension provides a visual designer for Pimcore workflow engine.",
+                "link": "/docs/workflow-designer/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+            "headless-documents": {
+                "title": "Headlesse Documents",
+                "description": "This extension adds a new document type \"Headless Document\" for managing website data in a headless manner.",
+                "link": "/docs/workflow-designer/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
+            "openid-connect": {
+                "title": "OpenID Connect",
+                "description": "Pimcore OpenID Connect allows to configure SSO for Pimcore backend login with an OpenID Connect provider.",
+                "link": "/docs/openid-connect/current",
+                "css_classes": "enterprise",
+                "ribbon_text": "Enterprise"
+            },
             "translations-provider": {
                 "title": "Translation Provider Interface",
                 "description": "This bundle integrates translations providers like translations.com with Pimcore.",

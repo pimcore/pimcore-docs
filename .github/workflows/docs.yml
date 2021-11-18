@@ -75,6 +75,15 @@ jobs:
             - name: "Docs for pimcore/perspective-editor"
               run: "./bin/do-generate.sh ./bin/settings-perspective-editor.sh"
 
+            - name: "Docs for pimcore/workflow-designer"
+              run: "./bin/do-generate.sh ./bin/settings-workflow-designer.sh"
+
+            - name: "Docs for pimcore/headless-documents"
+              run: "./bin/do-generate.sh ./bin/settings-headless-documents.sh"
+
+            - name: "Docs for pimcore/openid-connect"
+              run: "./bin/do-generate.sh ./bin/settings-openid-connect.sh"
+
             - name: Archive Release
               uses: thedoctor0/zip-release@master
               with:
