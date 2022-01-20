@@ -2,10 +2,10 @@
 
 # all paths relative to pimcore-docs/bin
 
-tags=(       "1.x"        "1.3"           )
-versions=(   "1.4"        "current"       )
-labels=(     "1.4 (dev)"  "1.3 (current)" )
-maintained=( "true"       "true"          )
+tags=(       "1.x"        "1.5"           "v1.4.0" "v1.3.2")
+versions=(   "1.6"        "current"       "1.4"    "1.3")
+labels=(     "1.6 (dev)"  "1.5 (current)" "1.4"    "1.3")
+maintained=( "true"       "true"          "false"  "false")
 
 gitRepository="git@github.com:pimcore/data-hub-simple-rest.git"
 repository="data-hub-simple-rest"
