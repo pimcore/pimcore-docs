@@ -2,10 +2,10 @@
 
 # all paths relative to pimcore-docs/bin
 
-tags=(       "1.x"        "1.0"  )
-versions=(   "1.1"        "current"   )
-labels=(     "1.1 (dev)"  "1.0 (current)" )
-maintained=( "true"       "true" )
+tags=(       "1.x"        "1.1"            "v1.0.6")
+versions=(   "1.2"        "current"        "1.0" )
+labels=(     "1.2 (dev)"  "1.1 (current)"  "1.0" )
+maintained=( "true"       "true"           "false" )
 
 gitRepository="git@github.com:pimcore/headless-documents.git"
 repository="headless-documents"
