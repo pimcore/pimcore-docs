@@ -37,7 +37,7 @@
                 "image": "https://pimcore.com/docs/pimcore/current/themes/pimcore/img/02_970x250_Billboard.jpg"
             }
         },
-        "edit_on_github": "pimcore/customer-data-framework/edit/master/doc",
+        "edit_on_github": "pimcore/customer-data-framework/edit/3.x",
         "disqus": {
             "include": false
         },
