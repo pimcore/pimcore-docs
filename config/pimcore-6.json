@@ -161,7 +161,7 @@
                 "ribbon_text": ""
             }
         },
-        "edit_on_github": "pimcore/pimcore/edit/10.x/doc",
+        "edit_on_github": "pimcore/pimcore/edit/11.x/doc",
         "disqus": {
             "include": false,
             "url_prefix": "https://pimcore.com/docs/latest/"
