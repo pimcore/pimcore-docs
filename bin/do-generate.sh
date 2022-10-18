@@ -35,7 +35,6 @@ do
     cd ../../repos/${repository}
 
     git checkout ${tags[$i]}
-    git pull
     git reset --hard
     git clean -df
 
