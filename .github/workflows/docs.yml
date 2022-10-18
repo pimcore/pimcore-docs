@@ -32,75 +32,57 @@ jobs:
 
             - name: "Docs for pimcore/pimcore"
               run: "./bin/do-generate.sh ./bin/settings-pimcore.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/advanced-object-search"
               run: "./bin/do-generate.sh ./bin/settings-aos.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/asset-metadata-class-definitions"
               run: "./bin/do-generate.sh ./bin/settings-asset-metadata.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/customer-data-framework"
               run: "./bin/do-generate.sh ./bin/settings-cmf.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/data-hub"
               run: "./bin/do-generate.sh ./bin/settings-data-hub.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/data-hub-ci-hub"
               run: "./bin/do-generate.sh ./bin/settings-data-hub-ci-hub.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/data-hub-file-export"
               run: "./bin/do-generate.sh ./bin/settings-data-hub-file-export.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/data-hub-productsup"
               run: "./bin/do-generate.sh ./bin/settings-data-hub-productsup.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/data-hub-simple-rest"
               run: "./bin/do-generate.sh ./bin/settings-data-hub-simple-rest.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/direct-edit"
               run: "./bin/do-generate.sh ./bin/settings-direct-edit.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/portal-engine"
               run: "./bin/do-generate.sh ./bin/settings-portal-engine.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/statistics-explorer"
               run: "./bin/do-generate.sh ./bin/settings-statistics-explorer.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/translations-provider-interfaces"
               run: "./bin/do-generate.sh ./bin/settings-translations-provider-interfaces.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/data-importer"
               run: "./bin/do-generate.sh ./bin/settings-data-importer.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/perspective-editor"
               run: "./bin/do-generate.sh ./bin/settings-perspective-editor.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/workflow-designer"
               run: "./bin/do-generate.sh ./bin/settings-workflow-designer.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/headless-documents"
               run: "./bin/do-generate.sh ./bin/settings-headless-documents.sh"
-              continue-on-error: true
 
             - name: "Docs for pimcore/openid-connect"
               run: "./bin/do-generate.sh ./bin/settings-openid-connect.sh"
-              continue-on-error: true
 
             - name: Archive Release
               uses: thedoctor0/zip-release@master
