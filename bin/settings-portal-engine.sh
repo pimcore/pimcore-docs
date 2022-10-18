@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ex
+
 # all paths relative to pimcore-docs/bin
 
 tags=(      "2.x"        "2.4"           "v2.3.2" "v2.2.6" "v2.1.8" "v2.0.5" "v1.0.4" )

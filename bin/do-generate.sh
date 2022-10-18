@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ex
+
 # load parameters from given config file
 source $1
 
