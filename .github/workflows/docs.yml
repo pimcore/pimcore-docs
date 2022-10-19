@@ -66,8 +66,8 @@ jobs:
             - name: "Docs for pimcore/statistics-explorer"
               run: "./bin/do-generate.sh ./bin/settings-statistics-explorer.sh"
 
-            - name: "Docs for pimcore/translations-provider-interfaces"
-              run: "./bin/do-generate.sh ./bin/settings-translations-provider-interfaces.sh"
+            #- name: "Docs for pimcore/translations-provider-interfaces"
+            #  run: "./bin/do-generate.sh ./bin/settings-translations-provider-interfaces.sh"
 
             - name: "Docs for pimcore/data-importer"
               run: "./bin/do-generate.sh ./bin/settings-data-importer.sh"
