@@ -66,9 +66,6 @@ jobs:
             - name: "Docs for pimcore/statistics-explorer"
               run: "./bin/do-generate.sh ./bin/settings-statistics-explorer.sh"
 
-            #- name: "Docs for pimcore/translations-provider-interfaces"
-            #  run: "./bin/do-generate.sh ./bin/settings-translations-provider-interfaces.sh"
-
             - name: "Docs for pimcore/data-importer"
               run: "./bin/do-generate.sh ./bin/settings-data-importer.sh"
 
@@ -83,6 +80,9 @@ jobs:
 
             - name: "Docs for pimcore/openid-connect"
               run: "./bin/do-generate.sh ./bin/settings-openid-connect.sh"
+
+            - name: "Docs for pimcore/translations-provider-interfaces"
+              run: "./bin/do-generate.sh ./bin/settings-translations-provider-interfaces.sh"
 
             - name: Archive Release
               uses: thedoctor0/zip-release@master
