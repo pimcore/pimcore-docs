@@ -16,9 +16,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Font -->
-    <?php foreach ($params['theme']['fonts'] as $font) {
-    echo "<link href='$font' rel='stylesheet' type='text/css'>";
-} ?>
+    <?php 
+    foreach ($params['theme']['fonts'] as $font) {
+        echo "<link href='$font' rel='stylesheet' type='text/css'>";
+    }
+    
+    if(!empty($params['version_map'])) {
+        $versionMap = $params['version_map'];
+        if($versionMap['hasMultipleVersions'] && is_array($versionMap['versions']['Maintained'])) { 
+            foreach($versionMap['versions']['Maintained'] as $versionName => $version) {
+                if(strpos($versionName, 'current') !== false) {
+                    echo '<link rel="canonical" href="'.$params['version_switch_path_prefix'].'/'.$versionName ?>/<?= $page['request'] ?>">';
+                }
+            }
+        }
+    }
+?>
 
     <!-- CSS -->
     <?php foreach ($params['theme']['css'] as $css) {
