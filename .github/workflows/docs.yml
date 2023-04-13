@@ -3,7 +3,7 @@ name: "Documentation"
 
 on:
     schedule:
-      - cron: '30 * * * *'
+      - cron: '30 1 * * *'
     workflow_dispatch:
     push:
 
