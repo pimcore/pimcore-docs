@@ -4,7 +4,7 @@ set -ex
 
 # all paths relative to pimcore-docs/bin
 
-tags=(      "1.2"     "v1.1.2"     "v1.0.2")
+tags=(      "v1.2.11" "v1.1.2"     "v1.0.2")
 versions=(  "1.2"     "1.1"        "1.0")
 labels=(    "1.2"     "1.1"        "1.0")
 maintained=("false"   "false"      "false")
