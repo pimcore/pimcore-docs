@@ -13,6 +13,16 @@
         <?php } ?>
     </div>
 
+    <div style="
+        border: 1px solid #e5e531;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    ">
+        <b>Warning:</b> You are browsing the documentation for an unmaintained version of Pimcore. 
+        Please visit <a href="https://pimcore.com/docs/platform/">https://pimcore.com/docs/platform/</a> for the latest version. 
+    </div>
+    
     <div class="action-box">
         <?php $this->insert('theme::partials/change_version', ['page' => $page, 'params' => $params]) ?>
         <?php $this->insert('theme::partials/edit_on', ['page' => $page, 'params' => $params]) ?>
