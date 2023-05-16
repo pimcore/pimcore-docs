@@ -4,10 +4,10 @@ set -ex
 
 # all paths relative to pimcore-docs/bin
 
-tags=(      "2.x"        "1.2"            "v1.1.2"        "v1.0.2")
-versions=(  "2.0"        "current"        "1.1"        "1.0")
-labels=(    "2.0 (dev)"  "1.2 (current)"  "1.1"        "1.0")
-maintained=("true"       "true"           "false"      "false")
+tags=(      "1.2"     "v1.1.2"     "v1.0.2")
+versions=(  "1.2"     "1.1"        "1.0")
+labels=(    "1.2"     "1.1"        "1.0")
+maintained=("false"   "false"      "false")
 
 gitRepository="git@github.com:pimcore/asset-metadata-class-definitions.git"
 repository="asset-metadata-class-definitions"
