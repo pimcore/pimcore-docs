@@ -4,10 +4,10 @@ set -ex
 
 # all paths relative to pimcore-docs/bin
 
-tags=(       "2.x"        "1.3"           "v1.2.0" "v1.1.1")
-versions=(   "2.0"        "current"       "1.2"    "1.1")
-labels=(     "2.0 (dev)"  "1.3 (current)" "1.2"    "1.1")
-maintained=( "true"       "true"          "false"  "false")
+tags=(       "v1.3.4" "v1.2.0" "v1.1.1")
+versions=(   "1.3"    "1.2"    "1.1")
+labels=(     "1.3"    "1.2"    "1.1")
+maintained=( "false"  "false"  "false")
 
 gitRepository="git@github.com:pimcore/data-hub-productsup.git"
 repository="data-hub-productsup"

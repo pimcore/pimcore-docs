@@ -4,10 +4,10 @@ set -ex
 
 # all paths relative to pimcore-docs/bin
 
-tags=(       "1.x"       "1.0" )
-versions=(   "1.1"       "current" )
-labels=(     "1.1 (dev)" "1.0 (current)")
-maintained=( "true"      "true")
+tags=(       "v1.0.9" )
+versions=(   "1.0" )
+labels=(     "1.0")
+maintained=( "false")
 
 gitRepository="git@github.com:pimcore/openid-connect.git"
 repository="openid-connect"
