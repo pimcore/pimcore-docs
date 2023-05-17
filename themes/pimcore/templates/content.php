@@ -19,8 +19,8 @@
         margin-bottom: 10px;
         border-radius: 5px;
     ">
-        <b>Warning:</b> You are browsing the documentation for an unmaintained version of Pimcore. 
-        Please visit <a href="https://pimcore.com/docs/platform/">https://pimcore.com/docs/platform/</a> for the latest version. 
+        <b>Warning:</b> You are browsing the documentation from version 4 to 10 of Pimcore.
+        Please visit <a href="https://pimcore.com/docs/platform/">https://pimcore.com/docs/platform/</a> for the latest versions of Pimcore.
     </div>
     
     <div class="action-box">
