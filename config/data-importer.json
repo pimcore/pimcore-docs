@@ -34,7 +34,7 @@
         "banner": {
             "academy": {
                 "link": "https://pimcore.com/en/developers/academy",
-                "image": "https://pimcore.com/docs/pimcore/current/themes/pimcore/img/02_970x250_Billboard.jpg"
+                "image": "https://pimcore.com/docs/pimcore/10.6/themes/pimcore/img/02_970x250_Billboard.jpg"
             }
         },
         "edit_on_github": "pimcore/data-importer/edit/1.x/doc",
