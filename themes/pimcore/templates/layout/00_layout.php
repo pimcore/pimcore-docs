@@ -47,6 +47,9 @@
     if ($params['html']['piwik_analytics']) {
         $this->insert('theme::partials/piwik_analytics', ['url' => $params['html']['piwik_analytics'], 'id' => $params['html']['piwik_analytics_id']]);
     }
+    if ($params['html']['google_analytics_4']) {
+        $this->insert('theme::partials/google_analytics', ['analytics' => $params['html']['google_analytics_4']]);
+    }
     ?>
 
     <!-- JS -->
