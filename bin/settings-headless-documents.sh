@@ -11,7 +11,7 @@ maintained=( "true"      "false"  "false"       "false")
 
 gitRepository="git@github.com:pimcore/headless-documents.git"
 repository="headless-documents"
-outputPath="/docs/headless-documents"
+outputPath="/headless-documents"
 
 configFilePath="../config"
 configFileBaseName="headless-documents"

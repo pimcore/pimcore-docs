@@ -11,7 +11,7 @@ maintained=("false"  "false"   "false" "false" "false" "false" "false"  "false")
 
 gitRepository="https://github.com/pimcore/data-importer.git"
 repository="data-importer"
-outputPath="/docs/data-importer"
+outputPath="/data-importer"
 
 configFilePath="../config"
 configFileBaseName="data-importer"

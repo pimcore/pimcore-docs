@@ -11,7 +11,7 @@ maintained=( "true"   "false"  "false"    "false"   "false")
 
 gitRepository="git@github.com:pimcore/translations-provider-interfaces.git"
 repository="translations-provider-interfaces"
-outputPath="/docs/translations-provider-interfaces"
+outputPath="/translations-provider-interfaces"
 
 configFilePath="../config"
 configFileBaseName="translations-provider-interfaces"

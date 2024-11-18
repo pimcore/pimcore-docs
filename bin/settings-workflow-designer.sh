@@ -11,7 +11,7 @@ maintained=( "false")
 
 gitRepository="git@github.com:pimcore/workflow-designer.git"
 repository="workflow-designer"
-outputPath="/docs/workflow-designer"
+outputPath="/workflow-designer"
 
 configFilePath="../config"
 configFileBaseName="workflow-designer"

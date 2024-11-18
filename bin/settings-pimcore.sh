@@ -9,9 +9,9 @@ versions=(   "10.6"    "10.5"     "10.4"    "10.3"           "10.2"       "10.1"
 labels=(     "10.6"    "10.5"     "10.4"    "10.3"           "10.2"       "10.1"        "10.0"        "6.9"     "6.8"     "6.7"     "6.6"     "6.5"    "6.4"    "6.3"    "6.2"    "6.1"    "6.0"    "5.8"    "4.6"   )
 maintained=( "true"    "false"    "false"   "false"          "false"      "false"       "false"       "false"   "false"   "false"   "false"   "false"  "false"  "false"  "false"  "false"  "false"  "false"  "false" )
 
-gitRepository="https://github.com/pimcore/pimcore.git"
+gitRepository="git@github.com:pimcore/ee-pimcore.git"
 repository="pimcore"
-outputPath="/docs/pimcore"
+outputPath="/pimcore"
 
 configFilePath="../config"
 versionSwitchPathPrefix="/docs"

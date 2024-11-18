@@ -11,7 +11,7 @@ maintained=("true"       "false"     "false"  "false"  "false"  "false"  "false"
 
 gitRepository="git@github.com:pimcore/portal-engine.git"
 repository="portal-engine"
-outputPath="/docs/portal-engine"
+outputPath="/portal-engine"
 
 configFilePath="../config"
 configFileBaseName="portal-engine"

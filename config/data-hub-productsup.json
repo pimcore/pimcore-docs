@@ -25,17 +25,13 @@
         "repo": "pimcore/data-hub-productsup",
         "twitter": false,
         "links": {
-            "Pimcore Core Documentation": "https://pimcore.com/docs",
+            "Pimcore Core Documentation": "https://docs.pimcore.com/platform",
             "Pimcore Academy": "https://pimcore.com/en/developers/academy",
             "Forums": "https://github.com/pimcore/pimcore/discussions",
             "Gitter": "https://gitter.im/pimcore/pimcore"
         },
         "google_analytics_4": "G-41P1GELNED",
         "banner": {
-            "academy": {
-                "link": "https://pimcore.com/en/developers/academy",
-                "image": "https://pimcore.com/docs/pimcore/10.6/themes/pimcore/img/2023_Pimcore_Academy_Banner_970x250.png"
-            }
         },
         "disqus": {
             "include": false
