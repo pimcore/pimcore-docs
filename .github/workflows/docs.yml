@@ -90,7 +90,7 @@ jobs:
               with:
                 type: 'zip'
                 filename: 'release.zip'
-                path: 'static/docs'
+                path: 'static'
 
             - uses: ncipollo/release-action@v1
               with:
