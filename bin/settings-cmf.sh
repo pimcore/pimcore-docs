@@ -11,7 +11,7 @@ maintained=( "false"    "false"    "false"   "false"  "false")
 
 gitRepository="https://github.com/pimcore/customer-data-framework.git"
 repository="customer-data-framework"
-outputPath="/docs/customer-management-framework"
+outputPath="/customer-management-framework"
 
 configFilePath="../config"
 configFileBaseName="cmf"

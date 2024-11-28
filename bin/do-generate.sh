@@ -13,9 +13,9 @@ cd $cwd
 mkdir -p ../../repos
 
 git clone ${gitRepository} ../../repos/${repository}
-git reset --hard
-git clean -fd
-git pull
+#git reset --hard
+#git clean -fd
+#git pull
 
 
 # get length of an array

@@ -12,7 +12,7 @@ maintained=( "false"  "false"  "false" )
 
 gitRepository="git@github.com:pimcore/statistics-explorer.git"
 repository="statistics-explorer"
-outputPath="/docs/statistics-explorer"
+outputPath="/statistics-explorer"
 
 configFilePath="../config"
 configFileBaseName="statistics-explorer"

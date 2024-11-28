@@ -37,99 +37,95 @@
         },
         "google_analytics_4": "G-41P1GELNED",
         "banner": {
-            "academy": {
-                "link": "https://pimcore.com/en/developers/academy",
-                "image": "https://pimcore.com/docs/pimcore/10.6/themes/pimcore/img/2023_Pimcore_Academy_Banner_970x250.png"
-            }
         },
         "linked_docs": {
             "portal-engine": {
                 "title": "Portal Engine",
                 "description": "Create Asset Experience Portals and Product Experience Portals just by configuration.",
-                "link": "/docs/portal-engine/2.5",
+                "link": "/portal-engine/2.5",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "dataimporter": {
                 "title": "Data Importer",
                 "description": "This extension adds a comprehensive import functionality to Pimcore Datahub.",
-                "link": "/docs/data-importer/1.7",
+                "link": "/data-importer/1.7",
                 "css_classes": "",
                 "ribbon_text": ""
             },
             "datahub": {
                 "title": "Datahub",
                 "description": "Pimcore Datahub  is Pimcore's data delivery & consumption platform. It integrates different input & output channel technologies into a simple & easy-to-configure system on top of Pimcore.",
-                "link": "/docs/data-hub/1.5",
+                "link": "/data-hub/1.5",
                 "css_classes": ""
             },
             "datahub-productsup": {
                 "title": "Datahub  Productsup Integration",
                 "description": "This extension integrates productsup into Pimcore Datahub .",
-                "link": "/docs/data-hub-productsup/1.3",
+                "link": "/data-hub-productsup/1.3",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "datahub-file-export": {
                 "title": "Datahub  File Export",
                 "description": "Publish the data you store in Pimcore automatically to flat CSV, XML, or JSON files with simple configurations inside Pimcore's Data Hub.",
-                "link": "/docs/data-hub-file-export/1.6",
+                "link": "/data-hub-file-export/1.6",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "datahub-simple-rest": {
                 "title": "Datahub  Simple Rest API",
                 "description": "This extension adds a simple read-ony rest API endpoint to Pimcore Datahub  for assets and data objects. All exposed data can be configured, is indexed in Elasticsearch and delivered from there for better query performance and scalability.",
-                "link": "/docs/data-hub-simple-rest/1.7",
+                "link": "/data-hub-simple-rest/1.7",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "datahub-ci-hub": {
                 "title": "Datahub  CI Hub Integration",
                 "description": "This extension integrates CI Hub into Pimcore Datahub .",
-                "link": "/docs/data-hub-ci-hub/1.1",
+                "link": "/data-hub-ci-hub/1.1",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "enterprise-metadata": {
                 "title": "Enterprise Asset Metadata",
                 "description": "This extension adds Enterprise Metadata to Pimcore with data object like editor and additional data types for asset metadata.",
-                "link": "/docs/asset-metadata/1.2",
+                "link": "/asset-metadata/1.2",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "direct-edit": {
                 "title": "Pimcore Direct Edit",
                 "description": "Pimcore Direct Edit allows you editing Pimcore assets locally in your preferred editor and upload them right away back to Pimcore.",
-                "link": "/docs/direct-edit/1.2",
+                "link": "/direct-edit/1.2",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "workflow-designer": {
                 "title": "Workflow Designer",
                 "description": "The Workflow Designer extension provides a visual designer for Pimcore workflow engine.",
-                "link": "/docs/workflow-designer/1.0",
+                "link": "/workflow-designer/1.0",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "headless-documents": {
                 "title": "Headless Documents",
                 "description": "This extension adds a new document type \"Headless Document\" for managing website data in a headless manner.",
-                "link": "/docs/headless-documents/1.4",
+                "link": "/headless-documents/1.4",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "openid-connect": {
                 "title": "OpenID Connect",
                 "description": "Pimcore OpenID Connect allows to configure SSO for Pimcore backend login with an OpenID Connect provider.",
-                "link": "/docs/openid-connect/1.0",
+                "link": "/openid-connect/1.0",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
             "translations-provider": {
                 "title": "Translation Provider Interface",
                 "description": "This bundle integrates translations providers like translations.com with Pimcore.",
-                "link": "/docs/translations-provider-interfaces/2.7",
+                "link": "/translations-provider-interfaces/2.7",
                 "css_classes": "enterprise",
                 "ribbon_text": "Enterprise"
             },
@@ -143,20 +139,20 @@
             "cmf": {
                 "title": "Customer Management Framework",
                 "description": "The Customer Management Framework (CMF) for Pimcore adds additional functionality for customer data management, segmentation, personalization and marketing automation. So it allows to aggregate customer data and user profiles, enrich data, link social profiles, build audience segments, trigger events, personalize experience, execute marketing automation and much more.",
-                "link": "/docs/customer-management-framework/3.4",
+                "link": "/customer-management-framework/3.4",
                 "css_classes": ""
             },
             "aos": {
                 "title": "Advanced Object Search",
                 "description": "Provides advanced object search in Pimcore backend powered by Elasticsearch v7.",
-                "link": "/docs/advanced-object-search/4.3",
+                "link": "/advanced-object-search/4.3",
                 "css_classes": "",
                 "ribbon_text": ""
             },
             "pe": {
                 "title": "Perspective Editor",
                 "description": "Provides an editor for Pimcore that allows to add, remove and edit custom views and perspectives.",
-                "link": "/docs/perspective-editor/1.5",
+                "link": "/perspective-editor/1.5",
                 "css_classes": "",
                 "ribbon_text": ""
             }

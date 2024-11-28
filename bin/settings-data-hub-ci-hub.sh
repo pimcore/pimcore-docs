@@ -11,7 +11,7 @@ maintained=( "false"  "false")
 
 gitRepository="git@github.com:pimcore/data-hub-ci-hub.git"
 repository="data-hub-ci-hub"
-outputPath="/docs/data-hub-ci-hub"
+outputPath="/data-hub-ci-hub"
 
 configFilePath="../config"
 configFileBaseName="data-hub-ci-hub"

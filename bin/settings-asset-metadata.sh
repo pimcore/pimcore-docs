@@ -11,7 +11,7 @@ maintained=("false"   "false"      "false")
 
 gitRepository="git@github.com:pimcore/asset-metadata-class-definitions.git"
 repository="asset-metadata-class-definitions"
-outputPath="/docs/asset-metadata"
+outputPath="/asset-metadata"
 
 configFilePath="../config"
 configFileBaseName="asset-metadata"

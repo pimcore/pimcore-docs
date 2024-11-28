@@ -11,7 +11,7 @@ maintained=("false"  "false"  "false"   "false"   "false"  )
 
 gitRepository="https://github.com/pimcore/advanced-object-search.git"
 repository="advanced-object-search"
-outputPath="/docs/advanced-object-search"
+outputPath="/advanced-object-search"
 
 configFilePath="../config"
 configFileBaseName="advanced-object-search"

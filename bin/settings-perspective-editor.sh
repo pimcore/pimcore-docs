@@ -11,7 +11,7 @@ maintained=( "false"            "false"         "false"  )
 
 gitRepository="https://github.com/pimcore/perspective-editor.git"
 repository="perspective-editor"
-outputPath="/docs/perspective-editor"
+outputPath="/perspective-editor"
 
 configFilePath="../config"
 configFileBaseName="perspective-editor"

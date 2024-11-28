@@ -11,7 +11,7 @@ maintained=( "false")
 
 gitRepository="git@github.com:pimcore/openid-connect.git"
 repository="openid-connect"
-outputPath="/docs/openid-connect"
+outputPath="/openid-connect"
 
 configFilePath="../config"
 configFileBaseName="openid-connect"

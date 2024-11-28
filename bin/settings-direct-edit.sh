@@ -12,7 +12,7 @@ maintained=( "false"   "false" )
 
 gitRepository="git@github.com:pimcore/direct-edit.git"
 repository="direct-edit"
-outputPath="/docs/direct-edit"
+outputPath="/direct-edit"
 
 configFilePath="../config"
 configFileBaseName="direct-edit"
